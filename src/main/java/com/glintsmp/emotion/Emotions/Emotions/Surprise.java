@@ -3,10 +3,10 @@ package com.glintsmp.emotion.Emotions.Emotions;
 import com.glintsmp.emotion.Emotions.Emotion;
 import org.bukkit.entity.Player;
 
-public class Love extends Emotion {
+public class Surprise extends Emotion {
 
-    public Love() {
-        super("love");
+    public Surprise() {
+        super("suprise");
     }
 
     @Override

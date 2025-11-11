@@ -3,19 +3,16 @@ package com.glintsmp.emotion.Emotions;
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class EmotionManager {
 
-    //public static final Map<Emotion, Map<UUID, Integer>> emotionMap = new HashMap<>();
     public static Map<String, Emotion> emotions = new HashMap<>();
 
     private static YamlConfiguration config;
@@ -33,6 +30,23 @@ public class EmotionManager {
      * Get the emotion level of a player using playerUUID
      * returns -1 if the data does not exist
      **/
+    public static Emotion getHighest(Player player) {
+        Emotion highest = getRandom();
+
+        for (Emotion emotion : getEmotions()) {
+            int level = getEmotionLevel(emotion, player.getUniqueId());
+            if (level == -1 || level >= getEmotionLevel(emotion, player.getUniqueId())) continue;
+
+            highest = emotion;
+        }
+
+        return highest;
+    }
+
+    public static Emotion getRandom() {
+        return getEmotions().stream().toList().get(new Random().nextInt(getEmotions().size()));
+    }
+
     public static int getEmotionLevel(Emotion emotion, UUID uuid) {
         ConfigurationSection section = config.getConfigurationSection(uuid.toString());
         if (section == null) return -1;
@@ -51,22 +65,23 @@ public class EmotionManager {
         return true;
     }
 
-    /**
-     * @param emotion
-     * @param uuid
-     * @param amount
-     */
-    public static void increaseEmotionLevel(Emotion emotion, UUID uuid, int amount) {
+    public static void increaseEmotionLevel(Emotion emotion, Player player, int amount) {
+        UUID uuid = player.getUniqueId();
+
         int level = getEmotionLevel(emotion, uuid);
         if (level == -1) return;
 
+        emotion.onDecrease(player, amount);
         setEmotionLevel(emotion, uuid, getEmotionLevel(emotion, uuid) + amount);
     }
 
-    public static void decreaseEmotionLevel(Emotion emotion, UUID uuid, int amount) {
+    public static void decreaseEmotionLevel(Emotion emotion, Player player, int amount) {
+        UUID uuid = player.getUniqueId();
+
         int level = getEmotionLevel(emotion, uuid);
         if (level == -1) return;
 
+        emotion.onDecrease(player, amount);
         setEmotionLevel(emotion, uuid, getEmotionLevel(emotion, uuid) - amount);
     }
 

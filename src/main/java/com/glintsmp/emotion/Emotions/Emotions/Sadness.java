@@ -4,8 +4,8 @@ import com.glintsmp.emotion.Emotions.Emotion;
 import org.bukkit.entity.Player;
 
 public class Sadness extends Emotion {
-    public Sadness(String id) {
-        super(id);
+    public Sadness() {
+        super("sadness");
     }
 
     @Override

@@ -4,8 +4,9 @@ import com.glintsmp.emotion.Emotions.Emotion;
 import org.bukkit.entity.Player;
 
 public class Sanity extends Emotion {
-    public Sanity(String id) {
-        super(id);
+
+    public Sanity() {
+        super("we will prob chance ts");
     }
 
     @Override

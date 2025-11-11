@@ -5,8 +5,8 @@ import org.bukkit.entity.Player;
 
 public class Boredom extends Emotion {
 
-    public Boredom(String id) {
-        super(id);
+    public Boredom() {
+        super("boredom");
     }
 
     @Override

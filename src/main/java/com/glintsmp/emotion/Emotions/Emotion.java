@@ -14,7 +14,10 @@ public abstract class Emotion {
         return id;
     }
 
-    public abstract void onIncrease(Player player, int value);
+    public int getCurrentValue(Player player) {
+        return EmotionManager.getEmotionLevel(this, player.getUniqueId());
+    }
 
+    public abstract void onIncrease(Player player, int value);
     public abstract void onDecrease(Player player, int value);
 }

@@ -23,6 +23,7 @@ public class IncreaseEmotion extends SubCommand {
                 "glint.staff");
     }
 
+    //increase players emotion through: <emotion> <player> <value>
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length != 4) {
@@ -55,7 +56,7 @@ public class IncreaseEmotion extends SubCommand {
             return true;
         }
 
-        EmotionManager.increaseEmotionLevel(emotion, target.getUniqueId(), val);
+        EmotionManager.increaseEmotionLevel(emotion, target, val);
 
         sender.sendMessage(Component.text("Increased Emotion level of " + target + " by " + val, NamedTextColor.RED));
         return true;

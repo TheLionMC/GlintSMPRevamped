@@ -1,5 +1,5 @@
 name: GlintSMP
-version: 'v0.0.1'
+version: 'v0.0.2'
 main: com.glintsmp.emotion.GlintSMP
 api-version: '1.21'
 
@@ -7,5 +7,9 @@ commands:
   Emotion:
     description: Manage emotions
     usage: /Emotion <subcommand>
-    aliases: [emt]
+    aliases: [emt, emotion]
     permission: glintsmp.staff
+  trust:
+    description: Trust System
+    usage: /trust <subcommand>
+    aliases: [t, Team]
