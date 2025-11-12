@@ -22,7 +22,6 @@ public class TrustList extends SubCommand {
         super("list", "Get your Trustlist");
     }
 
-
     // As staff get the list of a chosen player, As normal player, get your own
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

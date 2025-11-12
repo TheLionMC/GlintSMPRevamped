@@ -1,8 +1,6 @@
 package com.glintsmp.emotion.Commands.Commands.Trust;
 
 import com.glintsmp.emotion.Commands.SubCommand;
-import com.glintsmp.emotion.Emotions.Emotion;
-import com.glintsmp.emotion.Emotions.EmotionManager;
 import com.glintsmp.emotion.Trust.TrustManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -31,7 +29,6 @@ public class TrustAdd extends SubCommand {
             return true;
         }
 
-
         Player target = Bukkit.getPlayer(args[1]);
         if (target == null) {
             sender.sendMessage(Component.text("Player " + args[1] + " is not online!", NamedTextColor.RED));
@@ -39,8 +36,8 @@ public class TrustAdd extends SubCommand {
         }
 
         UUID adduuid = target.getUniqueId();
-
         TrustManager.addTrusted(player.getUniqueId(), adduuid);
+        sender.sendMessage(Component.text("Player " + args[1] + " added to your trustlist!", NamedTextColor.GREEN));
         return true;
     }
 

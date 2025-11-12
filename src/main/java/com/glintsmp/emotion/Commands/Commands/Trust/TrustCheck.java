@@ -48,6 +48,6 @@ public class TrustCheck extends SubCommand {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        return List.of();
+        return null;
     }
 }

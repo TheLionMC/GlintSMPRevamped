@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class TrustRemove extends SubCommand {
+
     public TrustRemove() {
         super("remove", "Remove someone from your trustlist.");
     }
@@ -30,15 +31,16 @@ public class TrustRemove extends SubCommand {
         Player targetplayer = Bukkit.getPlayer(sender.getName());
         UUID targetplayeruuid = Objects.requireNonNull(targetplayer).getUniqueId();
 
-        Player player = Bukkit.getPlayer(args[2]);
+        Player player = Bukkit.getPlayer(args[1]);
         if (player == null) {
-            sender.sendMessage(Component.text("Player " + args[2] + " is not online!", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Player " + args[1] + " is not online!", NamedTextColor.RED));
             return true;
         }
+
         UUID adduuid = player.getUniqueId();
 
         TrustManager.removeTrusted(targetplayeruuid, adduuid);
-
+        sender.sendMessage(Component.text("Player " + args[1] + " removed from your trusted list!", NamedTextColor.GREEN));
         return true;
     }
 
