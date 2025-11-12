@@ -29,7 +29,7 @@ public class TrustList extends SubCommand {
         Player player = Bukkit.getPlayer(sender.getName());
         UUID uuid = Objects.requireNonNull(player).getUniqueId();
 
-        if (args.length < 2 || args.length > 3) {
+        if (args.length < 1 || args.length > 2) {
             if (sender.hasPermission("glint.staff")) {
                 sender.sendMessage(Component.text("Usage: /trust list <player>", NamedTextColor.RED));
                 return true;
@@ -39,7 +39,7 @@ public class TrustList extends SubCommand {
             }
         }
 
-        if (args.length == 3 | player.hasPermission("glint.staff")) {
+        if (args.length == 2 | player.hasPermission("glint.staff")) {
             Player checkplayer = Bukkit.getPlayer(args[2]);
             List<String> list = TrustManager.getTrustList(Objects.requireNonNull(checkplayer).getUniqueId());
             List<String> cleanlist = new ArrayList<>();

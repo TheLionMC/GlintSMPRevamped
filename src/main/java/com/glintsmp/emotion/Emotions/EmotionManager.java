@@ -1,5 +1,6 @@
 package com.glintsmp.emotion.Emotions;
 
+import com.glintsmp.emotion.Emotions.Emotions.Anger;
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -110,5 +111,15 @@ public class EmotionManager {
         }
 
         config = YamlConfiguration.loadConfiguration(file);
+        registerEmotion(new Anger());
+        registerEmotion(new Anger());
+        registerEmotion(new Anger());
+        registerEmotion(new Anger());
+        registerEmotion(new Anger());
+        registerEmotion(new Anger());
+    }
+
+    public static void registerEmotion(Emotion emotion) {
+        emotions.put(emotion.getId(), emotion);
     }
 }

@@ -58,7 +58,7 @@ public class DecreaseEmotion extends SubCommand {
         }
 
         EmotionManager.decreaseEmotionLevel(emotion, target, val);
-        sender.sendMessage(Component.text("Decreased Emotion level of " + target + " by " + val, NamedTextColor.GREEN));
+        sender.sendMessage(Component.text("Decreased Emotion level of " + target.getName() + " by " + val, NamedTextColor.GREEN));
         return true;
     }
 

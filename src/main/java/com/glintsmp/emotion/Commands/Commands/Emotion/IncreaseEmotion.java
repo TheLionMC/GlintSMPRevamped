@@ -57,8 +57,7 @@ public class IncreaseEmotion extends SubCommand {
         }
 
         EmotionManager.increaseEmotionLevel(emotion, target, val);
-
-        sender.sendMessage(Component.text("Increased Emotion level of " + target + " by " + val, NamedTextColor.RED));
+        sender.sendMessage(Component.text("Increased Emotion level of " + target.getName() + " by " + val, NamedTextColor.GREEN));
         return true;
     }
 

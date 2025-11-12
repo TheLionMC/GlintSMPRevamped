@@ -23,7 +23,7 @@ public class TrustRemove extends SubCommand {
     // Remove a player from your trustlist
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length != 3) {
+        if (args.length != 2) {
             sender.sendMessage(Component.text("Usage: /trust remove <player>", NamedTextColor.RED));
             return true;
         }

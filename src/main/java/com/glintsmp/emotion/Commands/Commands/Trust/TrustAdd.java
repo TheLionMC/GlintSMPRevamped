@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class TrustAdd extends SubCommand {
@@ -26,22 +25,22 @@ public class TrustAdd extends SubCommand {
     // Add a player to your trustlist
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length != 3) {
+        if (!(sender instanceof Player player)) return true;
+        if (args.length != 2) {
             sender.sendMessage(Component.text("Usage: /trust add <player>", NamedTextColor.RED));
             return true;
         }
-        Player targetplayer = Bukkit.getPlayer(sender.getName());
-        UUID targetplayeruuid = Objects.requireNonNull(targetplayer).getUniqueId();
 
-        Player player = Bukkit.getPlayer(args[2]);
-        if (player == null) {
-            sender.sendMessage(Component.text("Player " + args[2] + " is not online!", NamedTextColor.RED));
+
+        Player target = Bukkit.getPlayer(args[1]);
+        if (target == null) {
+            sender.sendMessage(Component.text("Player " + args[1] + " is not online!", NamedTextColor.RED));
             return true;
         }
-        UUID adduuid = player.getUniqueId();
 
-        TrustManager.addTrusted(targetplayeruuid, adduuid);
+        UUID adduuid = target.getUniqueId();
 
+        TrustManager.addTrusted(player.getUniqueId(), adduuid);
         return true;
     }
 

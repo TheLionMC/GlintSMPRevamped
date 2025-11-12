@@ -8,8 +8,8 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustCheck;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
 import com.glintsmp.emotion.Emotions.EmotionManager;
+import com.glintsmp.emotion.Trust.TrustManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -20,9 +20,11 @@ public final class GlintSMP extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        EmotionManager.initialize(this);
         logger = getLogger();
         logger.info("Emotions are running high!");
+
+        EmotionManager.initialize(this);
+        TrustManager.initialize(this);
 
         // Commands
         Command emotionCommand = new Command();
