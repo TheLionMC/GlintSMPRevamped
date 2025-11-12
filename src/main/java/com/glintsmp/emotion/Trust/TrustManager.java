@@ -14,7 +14,7 @@ import java.util.UUID;
 public class TrustManager {
 
     private static YamlConfiguration config;
-    private static File emotionFile;
+    private static File trustFile;
 
     /**
      * Check if a certain user is trusted
@@ -57,7 +57,7 @@ public class TrustManager {
 
     public static void save() {
         try {
-            config.save(emotionFile);
+            config.save(trustFile);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -79,6 +79,7 @@ public class TrustManager {
             }
         }
 
+        trustFile = file;
         config = YamlConfiguration.loadConfiguration(file);
     }
 }
