@@ -1,5 +1,7 @@
 package com.glintsmp.emotion.RelationshipAlgorithm;
 
+import com.glintsmp.emotion.Managers.RelationshipManager;
+
 import java.util.UUID;
 
 public class RelationshipAdjuster {

@@ -1,4 +1,4 @@
-package com.glintsmp.emotion.RelationshipAlgorithm;
+package com.glintsmp.emotion.Managers;
 
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.configuration.file.YamlConfiguration;

@@ -1,7 +1,7 @@
 package com.glintsmp.emotion.Commands.Commands.Trust;
 
 import com.glintsmp.emotion.Commands.SubCommand;
-import com.glintsmp.emotion.Managers.TrustManager;
+import com.glintsmp.emotion.Trust.TrustManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
@@ -39,7 +39,7 @@ public class TrustList extends SubCommand {
         }
 
         if (args.length == 2 | player.hasPermission("glint.staff")) {
-            Player checkplayer = Bukkit.getPlayer(args[2]);
+            Player checkplayer = Bukkit.getPlayer(args[1]);
             List<String> list = TrustManager.getTrustList(Objects.requireNonNull(checkplayer).getUniqueId());
             List<String> cleanlist = new ArrayList<>();
 

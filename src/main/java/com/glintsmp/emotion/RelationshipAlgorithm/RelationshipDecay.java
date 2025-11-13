@@ -1,5 +1,6 @@
 package com.glintsmp.emotion.RelationshipAlgorithm;
 
+import com.glintsmp.emotion.Managers.RelationshipManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
