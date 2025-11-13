@@ -8,7 +8,12 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustCheck;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
 import com.glintsmp.emotion.Emotions.EmotionManager;
+import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipDecay;
+import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipEventHandler;
+import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipManager;
 import com.glintsmp.emotion.Trust.TrustManager;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -17,14 +22,17 @@ import java.util.logging.Logger;
 public final class GlintSMP extends JavaPlugin {
 
     public static Logger logger;
+    private static GlintSMP instance;
 
     @Override
     public void onEnable() {
         logger = getLogger();
         logger.info("Emotions are running high!");
+        instance = this;
 
         EmotionManager.initialize(this);
         TrustManager.initialize(this);
+        RelationshipManager.initialize(this);
 
         // Commands
         Command emotionCommand = new Command();
@@ -42,10 +50,22 @@ public final class GlintSMP extends JavaPlugin {
         Objects.requireNonNull(getCommand("trust")).setExecutor(trustCommand);
 
         // Listeners
+        RelationshipDecay.start(this);
+
+
+        // Event Handlers
+        Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
     }
 
     @Override
     public void onDisable() {
         logger.info("Emotions are flowing away...");
+    }
+
+    public static GlintSMP getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("Plugin instance is not initialized yet!");
+        }
+        return instance;
     }
 }
