@@ -112,6 +112,7 @@ public class EmotionManager {
             }
         }
 
+        emotionFile = file;
         config = YamlConfiguration.loadConfiguration(file);
         registerEmotion(new Anger());
         registerEmotion(new Boredom());

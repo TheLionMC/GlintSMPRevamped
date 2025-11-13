@@ -1,4 +1,4 @@
-package com.glintsmp.emotion.Managers;
+package com.glintsmp.emotion.Trust;
 
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -6,8 +6,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class TrustManager {
 
@@ -33,6 +32,7 @@ public class TrustManager {
         if (!trusted.contains(adduuid.toString()))
             trusted.add(adduuid.toString());
 
+        config.set(playeruuid.toString(), trusted);
         save();
     }
 
@@ -43,6 +43,7 @@ public class TrustManager {
         List<String> trusted = config.getStringList(playeruuid.toString());
         trusted.remove(removeuuid.toString());
 
+        config.set(playeruuid.toString(), trusted);
         save();
     }
 
