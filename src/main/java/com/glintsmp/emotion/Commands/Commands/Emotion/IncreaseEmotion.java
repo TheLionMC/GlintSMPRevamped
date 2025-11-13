@@ -3,7 +3,7 @@ package com.glintsmp.emotion.Commands.Commands.Emotion;
 
 import com.glintsmp.emotion.Commands.SubCommand;
 import com.glintsmp.emotion.Emotions.Emotion;
-import com.glintsmp.emotion.Emotions.EmotionManager;
+import com.glintsmp.emotion.Managers.EmotionManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;

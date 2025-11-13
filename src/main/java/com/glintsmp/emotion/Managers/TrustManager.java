@@ -1,14 +1,12 @@
-package com.glintsmp.emotion.Trust;
+package com.glintsmp.emotion.Managers;
 
 import com.glintsmp.emotion.GlintSMP;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class TrustManager {

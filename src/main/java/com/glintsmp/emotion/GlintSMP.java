@@ -7,8 +7,10 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustAdd;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustCheck;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
-import com.glintsmp.emotion.Emotions.EmotionManager;
-import com.glintsmp.emotion.Trust.TrustManager;
+import com.glintsmp.emotion.Managers.ActionbarManager;
+import com.glintsmp.emotion.Managers.EmotionManager;
+import com.glintsmp.emotion.Managers.TrustManager;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -16,6 +18,7 @@ import java.util.logging.Logger;
 
 public final class GlintSMP extends JavaPlugin {
 
+    public static final MiniMessage miniMessage = MiniMessage.builder().build();
     public static Logger logger;
 
     @Override
@@ -25,6 +28,7 @@ public final class GlintSMP extends JavaPlugin {
 
         EmotionManager.initialize(this);
         TrustManager.initialize(this);
+        ActionbarManager.initialize(this);
 
         // Commands
         Command emotionCommand = new Command();

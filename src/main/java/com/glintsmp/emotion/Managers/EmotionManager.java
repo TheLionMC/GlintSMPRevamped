@@ -1,11 +1,13 @@
-package com.glintsmp.emotion.Emotions;
+package com.glintsmp.emotion.Managers;
 
-import com.glintsmp.emotion.Emotions.Emotions.Anger;
+import com.glintsmp.emotion.Emotions.Emotion;
+import com.glintsmp.emotion.Emotions.Emotions.*;
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
@@ -31,7 +33,7 @@ public class EmotionManager {
      * Get the emotion level of a player using playerUUID
      * returns -1 if the data does not exist
      **/
-    public static Emotion getHighest(Player player) {
+    public static @NotNull Emotion getHighest(Player player) {
         Emotion highest = getRandom();
 
         for (Emotion emotion : getEmotions()) {
@@ -112,11 +114,15 @@ public class EmotionManager {
 
         config = YamlConfiguration.loadConfiguration(file);
         registerEmotion(new Anger());
-        registerEmotion(new Anger());
-        registerEmotion(new Anger());
-        registerEmotion(new Anger());
-        registerEmotion(new Anger());
-        registerEmotion(new Anger());
+        registerEmotion(new Boredom());
+        registerEmotion(new Confidence());
+        registerEmotion(new Excitement());
+        registerEmotion(new Fear());
+        registerEmotion(new Loneliness());
+        registerEmotion(new Love());
+        registerEmotion(new Sadness());
+        registerEmotion(new Shock());
+        registerEmotion(new Surprise());
     }
 
     public static void registerEmotion(Emotion emotion) {

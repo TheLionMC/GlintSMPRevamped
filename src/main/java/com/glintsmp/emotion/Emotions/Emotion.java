@@ -1,5 +1,6 @@
 package com.glintsmp.emotion.Emotions;
 
+import com.glintsmp.emotion.Managers.EmotionManager;
 import org.bukkit.entity.Player;
 
 public abstract class Emotion {

@@ -1,6 +1,7 @@
 package com.glintsmp.emotion.Emotions.Emotions;
 
 import com.glintsmp.emotion.Emotions.Emotion;
+import com.glintsmp.emotion.Utils.ColorUtils;
 import org.bukkit.entity.Player;
 
 public class Anger extends Emotion {
