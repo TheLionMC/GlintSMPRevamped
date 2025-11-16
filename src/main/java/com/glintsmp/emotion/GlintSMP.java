@@ -56,7 +56,6 @@ public final class GlintSMP extends JavaPlugin {
         // Listeners
         RelationshipDecay.start(this);
 
-
         // Event Handlers
         Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
     }

@@ -2,9 +2,7 @@ package com.glintsmp.emotion.Managers;
 
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Emotions.Emotions.*;
-import com.glintsmp.emotion.GlintSMP;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -26,8 +24,7 @@ public class ActionbarManager extends BukkitRunnable {
             Confidence.class, 20, Exception.class, 30,
             Fear.class, 40, Loneliness.class, 50,
             Love.class, 60, Sadness.class, 70,
-            Shock.class, 80, Surprise.class, 90
-    );
+            Shock.class, 80, Surprise.class, 90 );
 
     @Override
     public void run() {
@@ -43,6 +40,6 @@ public class ActionbarManager extends BukkitRunnable {
         int codepoint = 0xE000 + start + value;
         String unicode = new String(Character.toChars(codepoint));
 
-        player.sendActionBar(Component.text(unicode).color(TextColor.color(codepoint)));
+        player.sendActionBar(Component.text(unicode));
     }
 }

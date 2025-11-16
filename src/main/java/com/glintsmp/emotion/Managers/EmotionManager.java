@@ -29,18 +29,21 @@ public class EmotionManager {
         return emotions.values();
     }
 
-    /**
-     * Get the emotion level of a player using playerUUID
-     * returns -1 if the data does not exist
-     **/
     public static @NotNull Emotion getHighest(Player player) {
-        Emotion highest = getRandom();
+        UUID uuid = player.getUniqueId();
+
+        Emotion highest = getEmotions().iterator().next();
+        int highestLevel = Integer.MIN_VALUE;
 
         for (Emotion emotion : getEmotions()) {
-            int level = getEmotionLevel(emotion, player.getUniqueId());
-            if (level == -1 || level >= getEmotionLevel(emotion, player.getUniqueId())) continue;
+            int level = getEmotionLevel(emotion, uuid);
 
-            highest = emotion;
+            if (level < 0) continue;
+
+            if (level > highestLevel) {
+                highestLevel = level;
+                highest = emotion;
+            }
         }
 
         return highest;
@@ -52,40 +55,44 @@ public class EmotionManager {
 
     public static int getEmotionLevel(Emotion emotion, UUID uuid) {
         ConfigurationSection section = config.getConfigurationSection(uuid.toString());
-        if (section == null) return -1;
+        if (section == null)
+            section = config.createSection(uuid.toString());
 
-        return section.getInt(emotion.getId(), -1);
+        if (!section.contains(emotion.getId())) {
+            section.set(emotion.getId(), 0);
+            save();
+            return 0;
+        }
+
+        return section.getInt(emotion.getId());
     }
 
-    public static boolean setEmotionLevel(Emotion emotion, UUID uuid, int level) {
+    public static void setEmotionLevel(Emotion emotion, UUID uuid, int level) {
         ConfigurationSection section = config.getConfigurationSection(uuid.toString());
-        if (section == null) {
-            section = config.createSection(uuid.toString());
-        }
+        if (section == null) section = config.createSection(uuid.toString());
 
         section.set(emotion.getId(), level);
         save();
-        return true;
     }
 
     public static void increaseEmotionLevel(Emotion emotion, Player player, int amount) {
         UUID uuid = player.getUniqueId();
 
-        int level = getEmotionLevel(emotion, uuid);
-        if (level == -1) return;
+        int current = getEmotionLevel(emotion, uuid);
+        int newLevel = current + amount;
 
-        emotion.onDecrease(player, amount);
-        setEmotionLevel(emotion, uuid, getEmotionLevel(emotion, uuid) + amount);
+        emotion.onIncrease(player, amount);
+        setEmotionLevel(emotion, uuid, newLevel);
     }
 
     public static void decreaseEmotionLevel(Emotion emotion, Player player, int amount) {
         UUID uuid = player.getUniqueId();
 
-        int level = getEmotionLevel(emotion, uuid);
-        if (level == -1) return;
+        int current = getEmotionLevel(emotion, uuid);
+        int newLevel = current - amount;
 
         emotion.onDecrease(player, amount);
-        setEmotionLevel(emotion, uuid, getEmotionLevel(emotion, uuid) - amount);
+        setEmotionLevel(emotion, uuid, newLevel);
     }
 
     public static void save() {
