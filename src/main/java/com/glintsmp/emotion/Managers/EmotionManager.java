@@ -81,7 +81,7 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current + amount;
 
-        emotion.onIncrease(player, amount);
+        emotion.increase(player, amount);
         setEmotionLevel(emotion, uuid, newLevel);
     }
 
@@ -91,7 +91,7 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current - amount;
 
-        emotion.onDecrease(player, amount);
+        emotion.decrease(player, amount);
         setEmotionLevel(emotion, uuid, newLevel);
     }
 

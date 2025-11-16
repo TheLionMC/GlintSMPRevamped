@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 public class Confidence extends Emotion {
 
     public Confidence() {
-        super("confidence");
+        super("confidence", null);
     }
 
     @Override

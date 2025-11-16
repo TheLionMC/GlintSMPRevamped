@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 public class Sadness extends Emotion {
     public Sadness() {
-        super("sadness");
+        super("sadness", null);
     }
 
     @Override

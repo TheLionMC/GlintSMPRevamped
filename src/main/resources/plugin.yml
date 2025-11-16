@@ -9,7 +9,11 @@ commands:
     usage: /Emotion <subcommand>
     aliases: [emt, emotion]
     permission: glintsmp.staff
+
   trust:
     description: Trust System
     usage: /trust <subcommand>
     aliases: [t, Team]
+  Ability:
+    description: ability related commands
+    usage: /Ability <subcommand>
