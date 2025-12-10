@@ -8,6 +8,8 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustAdd;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustCheck;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
+import com.glintsmp.emotion.Emotions.Trigger.EmotionListenerRegistry;
+import com.glintsmp.emotion.Listeners.CustomEvents;
 import com.glintsmp.emotion.Managers.ActionbarManager;
 import com.glintsmp.emotion.Managers.EmotionManager;
 import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipDecay;
@@ -40,6 +42,8 @@ public final class GlintSMP extends JavaPlugin {
         RelationshipManager.initialize(this);
         ActionbarManager.initialize(this);
 
+        EmotionListenerRegistry.registerAll();
+
         // Commands
         Command emotionCommand = new Command();
         Command trustCommand = new Command();
@@ -64,6 +68,7 @@ public final class GlintSMP extends JavaPlugin {
 
         // Event Handlers
         Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
+        Bukkit.getPluginManager().registerEvents(new CustomEvents(), this);
     }
 
     @Override

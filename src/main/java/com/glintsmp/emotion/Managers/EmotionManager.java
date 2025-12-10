@@ -3,6 +3,7 @@ package com.glintsmp.emotion.Managers;
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Emotions.Emotions.*;
 import com.glintsmp.emotion.GlintSMP;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -67,13 +68,29 @@ public class EmotionManager {
         return section.getInt(emotion.getId());
     }
 
-    public static void setEmotionLevel(Emotion emotion, UUID uuid, int level) {
+    public static void setEmotionLevel(Emotion emotion, UUID uuid, int newLevel) {
         ConfigurationSection section = config.getConfigurationSection(uuid.toString());
         if (section == null) section = config.createSection(uuid.toString());
 
-        section.set(emotion.getId(), level);
+        int oldLevel = section.getInt(emotion.getId(), 0);
+
+        newLevel = Math.min(100, Math.max(0, newLevel));
+
+        int diff = newLevel - oldLevel;
+
+        if (diff != 0) {
+            Player player = Bukkit.getPlayer(uuid);
+
+            if (player != null) {
+                if (diff > 0) emotion.increase(player, diff);
+                else emotion.decrease(player, -diff);
+            }
+        }
+
+        section.set(emotion.getId(), newLevel);
         save();
     }
+
 
     public static void increaseEmotionLevel(Emotion emotion, Player player, int amount) {
         UUID uuid = player.getUniqueId();
@@ -82,7 +99,7 @@ public class EmotionManager {
         int newLevel = current + amount;
 
         emotion.increase(player, amount);
-        setEmotionLevel(emotion, uuid, newLevel);
+        setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
     }
 
     public static void decreaseEmotionLevel(Emotion emotion, Player player, int amount) {
@@ -92,7 +109,7 @@ public class EmotionManager {
         int newLevel = current - amount;
 
         emotion.decrease(player, amount);
-        setEmotionLevel(emotion, uuid, newLevel);
+        setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
     }
 
     public static void save() {
@@ -103,7 +120,6 @@ public class EmotionManager {
         }
     }
 
-    // initialize data
     public static void initialize(Plugin plugin) {
         File dataFolder = plugin.getDataFolder();
         if (dataFolder.mkdirs())

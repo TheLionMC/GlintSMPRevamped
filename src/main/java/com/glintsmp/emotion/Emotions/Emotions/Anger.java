@@ -2,17 +2,28 @@ package com.glintsmp.emotion.Emotions.Emotions;
 
 import com.glintsmp.emotion.Emotions.Ability.Abilities.Shockwave;
 import com.glintsmp.emotion.Emotions.Emotion;
-import com.glintsmp.emotion.Emotions.Passive.Passives.PotionPassive;
+import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 public class Anger extends Emotion {
 
     public Anger() {
         super("anger", new Shockwave());
 
-        addPassive(40, new PotionPassive(new PotionEffect(PotionEffectType.STRENGTH, PotionEffect.INFINITE_DURATION,0)));
+        addTrigger(EmotionTrigger.PLAYER_DEATH_BY_PLAYER, Type.POSITIVE, 5);
+        addTrigger(EmotionTrigger.PLAYER_KILLED_PLAYER, Type.POSITIVE, 0.5);
+        addTrigger(EmotionTrigger.PLAYER_DAMAGED_BY_PLAYER, Type.POSITIVE, 0.2);
+        addTrigger(EmotionTrigger.PLAYER_TOOL_BREAK, Type.POSITIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_LOST_EVENT, Type.POSITIVE, 3);
+        addTrigger(EmotionTrigger.PLAYER_ITEM_STOLEN, Type.POSITIVE, 2);
+        addTrigger(EmotionTrigger.PET_KILLED_EVENT, Type.POSITIVE, 4);
+        addTrigger(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, Type.POSITIVE, 1.2);
+
+        addTrigger(EmotionTrigger.PLAYER_WINS_EVENT, Type.NEGATIVE, 5);
+        addTrigger(EmotionTrigger.PLAYER_EATS_FOOD, Type.NEGATIVE, 0.1);
+        addTrigger(EmotionTrigger.PLAYER_SLEEPS, Type.NEGATIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_REGEN_HEALTH, Type.NEGATIVE, 0.1);
+        addTrigger(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, Type.NEGATIVE, 0.1);
     }
 
     @Override
