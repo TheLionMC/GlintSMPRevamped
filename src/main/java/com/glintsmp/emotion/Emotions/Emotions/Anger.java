@@ -16,7 +16,7 @@ public class Anger extends Emotion {
         addTrigger(EmotionTrigger.PLAYER_TOOL_BREAK, Type.POSITIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_LOST_EVENT, Type.POSITIVE, 3);
         addTrigger(EmotionTrigger.PLAYER_ITEM_STOLEN, Type.POSITIVE, 2);
-        addTrigger(EmotionTrigger.PET_KILLED_EVENT, Type.POSITIVE, 4);
+        addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 4);
         addTrigger(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, Type.POSITIVE, 1.2);
 
         addTrigger(EmotionTrigger.PLAYER_WINS_EVENT, Type.NEGATIVE, 5);

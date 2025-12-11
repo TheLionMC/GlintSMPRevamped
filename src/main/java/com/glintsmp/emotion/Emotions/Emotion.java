@@ -3,6 +3,7 @@ package com.glintsmp.emotion.Emotions;
 import com.glintsmp.emotion.Emotions.Ability.Ability;
 import com.glintsmp.emotion.Emotions.Passive.Passive;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
+import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.Events.EmotionDecreaseEvent;
 import com.glintsmp.emotion.Events.EmotionIncreaseEvent;
 import com.glintsmp.emotion.Managers.EmotionManager;
@@ -46,6 +47,8 @@ public abstract class Emotion {
 
     public void addTrigger(EmotionTrigger trigger, Type type, double strength) {
         triggerMap.put(trigger, Pair.of(type, strength));
+
+        EmotionTriggerBus.subscribe(trigger, this);
     }
 
     public void addPassive(int reqValue, Passive passive) {
