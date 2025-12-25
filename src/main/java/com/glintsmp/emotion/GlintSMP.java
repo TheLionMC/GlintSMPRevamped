@@ -10,12 +10,9 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionListenerRegistry;
 import com.glintsmp.emotion.Listeners.CustomEvents;
-import com.glintsmp.emotion.Managers.ActionbarManager;
-import com.glintsmp.emotion.Managers.EmotionManager;
+import com.glintsmp.emotion.Managers.*;
 import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipDecay;
 import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipEventHandler;
-import com.glintsmp.emotion.Managers.RelationshipManager;
-import com.glintsmp.emotion.Managers.TrustManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -43,6 +40,7 @@ public final class GlintSMP extends JavaPlugin {
         TrustManager.initialize(this);
         RelationshipManager.initialize(this);
         ActionbarManager.initialize(this);
+        LifeManager.initialize(this);
 
         EmotionListenerRegistry.registerAll();
 
@@ -51,6 +49,7 @@ public final class GlintSMP extends JavaPlugin {
         Command trustCommand = new Command();
         Command abilityCommand = new Command();
 
+        //registering sub commands
         emotionCommand.registerSubCommand(new IncreaseEmotion());
         emotionCommand.registerSubCommand(new DecreaseEmotion());
 
@@ -58,7 +57,9 @@ public final class GlintSMP extends JavaPlugin {
         trustCommand.registerSubCommand(new TrustRemove());
         trustCommand.registerSubCommand(new TrustList());
         trustCommand.registerSubCommand(new TrustCheck());
-
+        //registering sub commands
+        
+        //finally actually applying the registration
         abilityCommand.registerSubCommand(new AbilityActivate());
 
         Objects.requireNonNull(getCommand("Emotion")).setExecutor(emotionCommand);

@@ -28,7 +28,7 @@ public class Anger extends Emotion {
 
     @Override
     public void onIncrease(Player player, int value) {
-
+        //TODO: Make a trigger to incerase/decrease their anger emotion
     }
 
     @Override
