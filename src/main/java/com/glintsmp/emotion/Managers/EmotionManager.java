@@ -60,9 +60,9 @@ public class EmotionManager {
             section = config.createSection(uuid.toString());
 
         if (!section.contains(emotion.getId())) {
-            section.set(emotion.getId(), 0);
+            section.set(emotion.getId(), emotion.getDefaultValue());
             save();
-            return 0;
+            return emotion.getDefaultValue();
         }
 
         return section.getInt(emotion.getId());
@@ -75,7 +75,6 @@ public class EmotionManager {
         int oldLevel = section.getInt(emotion.getId(), 0);
 
         newLevel = Math.min(100, Math.max(0, newLevel));
-
         int diff = newLevel - oldLevel;
 
         if (diff != 0) {
@@ -98,7 +97,6 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current + amount;
 
-        emotion.increase(player, amount);
         setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
     }
 
@@ -108,7 +106,6 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current - amount;
 
-        emotion.decrease(player, amount);
         setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
     }
 

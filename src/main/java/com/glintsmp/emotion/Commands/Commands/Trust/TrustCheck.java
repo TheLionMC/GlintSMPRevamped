@@ -35,12 +35,11 @@ public class TrustCheck extends SubCommand {
         }
 
         UUID checkuuid = target.getUniqueId();
-        boolean trusted = TrustManager.isTrusted(player.getUniqueId(), checkuuid);
 
-        if (trusted)
-            sender.sendMessage(Component.text("Player: " + player.getName() + "is trusted.", NamedTextColor.GREEN));
+        if (TrustManager.isTrusted(player.getUniqueId(), checkuuid))
+            sender.sendMessage(Component.text("Player: " + player.getName() + " is trusted.", NamedTextColor.GREEN));
         else
-            sender.sendMessage(Component.text("Player: " + player.getName() + "is not trusted.", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Player: " + player.getName() + " is not trusted.", NamedTextColor.RED));
 
 
         return true;

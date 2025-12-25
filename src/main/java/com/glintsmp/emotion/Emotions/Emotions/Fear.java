@@ -7,6 +7,7 @@ public class Fear extends Emotion {
 
     public Fear() {
         super("fear", null);
+        setDefaultValue(30);
     }
 
     @Override

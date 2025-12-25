@@ -1,6 +1,9 @@
 package com.glintsmp.emotion.Managers;
 
+import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
+import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.GlintSMP;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -17,6 +20,8 @@ public class TrustManager {
      * Check if a certain user is trusted
      **/
     public static boolean isTrusted(UUID playeruuid, UUID checkuuid) {
+        if (playeruuid.equals(checkuuid)) return true;
+
         List<String> trusted = config.getStringList(playeruuid.toString());
         if (trusted.isEmpty()) return false;
 
@@ -28,11 +33,10 @@ public class TrustManager {
      */
     public static void addTrusted(UUID playeruuid, UUID adduuid) {
         List<String> trusted = config.getStringList(playeruuid.toString());
-
-        if (!trusted.contains(adduuid.toString()))
-            trusted.add(adduuid.toString());
-
+        trusted.add(adduuid.toString());
         config.set(playeruuid.toString(), trusted);
+
+        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_TRUST_ADD, Bukkit.getPlayer(playeruuid), adduuid);
         save();
     }
 
@@ -44,6 +48,8 @@ public class TrustManager {
         trusted.remove(removeuuid.toString());
 
         config.set(playeruuid.toString(), trusted);
+
+        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_TRUST_REMOVE, Bukkit.getPlayer(playeruuid), removeuuid);
         save();
     }
 

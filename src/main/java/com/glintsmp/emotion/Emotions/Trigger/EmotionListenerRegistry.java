@@ -7,6 +7,7 @@ import org.reflections.Reflections;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Set;
 
 public class EmotionListenerRegistry {
@@ -22,7 +23,11 @@ public class EmotionListenerRegistry {
 
                 if (created instanceof Listener listener)
                     Bukkit.getPluginManager().registerEvents(listener, GlintSMP.getInstance());
-                else GlintSMP.logger.warning("Class is not a listener: " + clazz.getSimpleName());
+
+                try {
+                    Method method = clazz.getDeclaredMethod("init");
+                    method.invoke(created);
+                } catch (NoSuchMethodException ignore) {}
 
             } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);

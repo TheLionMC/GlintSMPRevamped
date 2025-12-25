@@ -26,7 +26,7 @@ public class AbilityActivate extends SubCommand {
         Emotion highest = EmotionManager.getHighest(player);
 
         if (!highest.activateAbility(player))
-            player.sendMessage(Component.text("Your feelings arent strong enough.").color(NamedTextColor.RED));
+            player.sendMessage(Component.text("Your feelings aren't strong enough.").color(NamedTextColor.RED));
         return true;
     }
 

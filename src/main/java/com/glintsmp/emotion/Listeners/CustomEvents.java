@@ -2,6 +2,8 @@ package com.glintsmp.emotion.Listeners;
 
 import com.glintsmp.emotion.Events.EmotionDecreaseEvent;
 import com.glintsmp.emotion.Events.EmotionIncreaseEvent;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -14,11 +16,11 @@ public class CustomEvents implements Listener {
 
     @EventHandler
     public void onIncrease(EmotionIncreaseEvent event) {
-        event.getPlayer().sendMessage("Test :D " + event.getIncreased() + " increased");
+        event.getPlayer().sendMessage(Component.text("Test :D " + event.getIncreased() + " increased", NamedTextColor.GREEN));
     }
 
     @EventHandler
     public void onDecrease(EmotionDecreaseEvent event) {
-        event.getPlayer().sendMessage("Test :D " + event.getDecreased() + " decreased");
+        event.getPlayer().sendMessage(Component.text("Test :D " + event.getDecreased() + " decreased", NamedTextColor.RED));
     }
 }

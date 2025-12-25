@@ -7,6 +7,8 @@ public class Confidence extends Emotion {
 
     public Confidence() {
         super("confidence", null);
+
+        setDefaultValue(60);
     }
 
     @Override
