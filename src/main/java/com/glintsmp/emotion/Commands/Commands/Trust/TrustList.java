@@ -31,11 +31,10 @@ public class TrustList extends SubCommand {
         if (args.length < 1 || args.length > 2) {
             if (sender.hasPermission("glint.staff")) {
                 sender.sendMessage(Component.text("Usage: /trust list <player>", NamedTextColor.RED));
-                return true;
             } else {
                 sender.sendMessage(Component.text("Usage: /trust list", NamedTextColor.RED));
-                return true;
             }
+            return true;
         }
 
         if (args.length == 2 | player.hasPermission("glint.staff")) {
