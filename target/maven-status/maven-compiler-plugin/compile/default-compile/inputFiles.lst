@@ -27,7 +27,12 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\E
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\EmotionListenerRegistry.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\EmotionTrigger.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\EmotionTriggerBus.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\CalmListener.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\ChatListener.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\DamageListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\DeathListener.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\EmotionTicks.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\UtilsListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionDecreaseEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionIncreaseEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\GlintSMP.java
@@ -43,4 +48,5 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\R
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\RelationshipAlgorithm\RelationshipUtils.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ColorUtils.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Cooldown.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ItemBuilder.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ParticleUtils.java

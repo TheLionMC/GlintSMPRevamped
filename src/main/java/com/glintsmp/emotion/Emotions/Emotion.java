@@ -23,6 +23,8 @@ public abstract class Emotion {
     private final String id;
     private final Ability ability;
 
+    private int defaultValue = 0;
+
     public Emotion(String id, Ability ability) {
         this.id = id;
         this.ability = ability;
@@ -30,6 +32,14 @@ public abstract class Emotion {
 
     public String getId() {
         return id;
+    }
+
+    public int getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        this.defaultValue = defaultValue;
     }
 
     public boolean activateAbility(Player player) {
@@ -120,8 +130,8 @@ public abstract class Emotion {
         Type type = pair.getLeft();
         double strength = pair.getRight();
 
-        if (type == Type.POSITIVE) increase(player, EmotionAlgorithm.getEmotionIncrease(strength));
-        if (type == Type.NEGATIVE) decrease(player, EmotionAlgorithm.getEmotionDecrease(strength));
+        if (type == Type.POSITIVE) EmotionManager.increaseEmotionLevel(this, player, EmotionAlgorithm.getEmotionIncrease(strength));
+        if (type == Type.NEGATIVE) EmotionManager.decreaseEmotionLevel(this, player, EmotionAlgorithm.getEmotionDecrease(strength));
     }
 
     protected abstract void onIncrease(Player player, int value);

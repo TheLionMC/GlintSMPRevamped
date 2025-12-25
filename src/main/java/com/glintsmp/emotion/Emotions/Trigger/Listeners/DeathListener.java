@@ -40,6 +40,9 @@ public class DeathListener implements Listener {
         AnimalTamer owner = tameable.getOwner();
         if (!(owner instanceof Player player)) return;
 
+        Player killer = tameable.getKiller();
+        if (killer == null || TrustManager.isTrusted(owner.getUniqueId(), killer.getUniqueId())) return;
+
         EmotionTriggerBus.fire(EmotionTrigger.PET_KILLED, player, tameable.getKiller());
     }
 }

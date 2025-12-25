@@ -1,10 +1,14 @@
 com\glintsmp\emotion\Emotions\Emotions\Confidence.class
 com\glintsmp\emotion\Events\EmotionDecreaseEvent.class
 com\glintsmp\emotion\Emotions\Emotions\Fear.class
+com\glintsmp\emotion\GlintSMP$3.class
 com\glintsmp\emotion\Commands\Commands\Ability\AbilityActivate.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\UtilsListener.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionTrigger.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler$InteractionWindow.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\DamageListener.class
 com\glintsmp\emotion\Emotions\Emotion.class
+com\glintsmp\emotion\Utils\ItemBuilder.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler.class
 com\glintsmp\emotion\Emotions\Emotions\Love.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionListener.class
@@ -14,9 +18,11 @@ com\glintsmp\emotion\Emotions\Passive\Passive.class
 com\glintsmp\emotion\Emotions\Emotions\Boredom.class
 com\glintsmp\emotion\Commands\Command.class
 com\glintsmp\emotion\Commands\Commands\Trust\TrustCheck.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\EmotionTicks.class
 com\glintsmp\emotion\Commands\SubCommand.class
 com\glintsmp\emotion\Utils\ParticleUtils.class
 com\glintsmp\emotion\Commands\Commands\Emotion\IncreaseEmotion.class
+com\glintsmp\emotion\GlintSMP$2.class
 com\glintsmp\emotion\Commands\Commands\Trust\TrustAdd.class
 com\glintsmp\emotion\Events\EmotionIncreaseEvent.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\DeathListener.class
@@ -30,6 +36,7 @@ com\glintsmp\emotion\RelationshipAlgorithm\RelationshipUtils.class
 com\glintsmp\emotion\Emotions\Emotions\Shock.class
 com\glintsmp\emotion\GlintSMP$1.class
 com\glintsmp\emotion\Managers\RelationshipManager.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\CalmListener.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipAdjuster.class
 com\glintsmp\emotion\Emotions\Ability\Abilities\Shockwave.class
 com\glintsmp\emotion\Emotions\Emotions\Surprise.class
@@ -40,6 +47,7 @@ com\glintsmp\emotion\Utils\ColorUtils.class
 com\glintsmp\emotion\Emotions\Emotions\Anger.class
 com\glintsmp\emotion\Emotions\Emotion$Type.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler$InteractionKey.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\ChatListener.class
 com\glintsmp\emotion\GlintSMP.class
 com\glintsmp\emotion\Managers\EmotionManager.class
 com\glintsmp\emotion\Utils\Cooldown.class

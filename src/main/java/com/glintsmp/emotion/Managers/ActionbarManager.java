@@ -24,7 +24,7 @@ public class ActionbarManager extends BukkitRunnable {
             Confidence.class, 20, Exception.class, 30,
             Fear.class, 40, Loneliness.class, 50,
             Love.class, 60, Sadness.class, 70,
-            Shock.class, 80, Surprise.class, 90 );
+            Shock.class, 80, Surprise.class, 90);
 
     @Override
     public void run() {

@@ -5,9 +5,10 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.GlintSMP;
 import io.papermc.paper.event.player.PlayerDeepSleepEvent;
+import net.kyori.adventure.text.Component;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
-import org.bukkit.block.data.type.Jukebox;
+import org.bukkit.block.Jukebox;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +21,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Random;
 
 @EmotionListener
-public class CalmListeners implements Listener {
+public class CalmListener implements Listener {
 
     @EventHandler
     public void playerEatsFood(PlayerItemConsumeEvent event) {
@@ -54,18 +55,13 @@ public class CalmListeners implements Listener {
 
         GlintSMP.runTaskLater(() -> {
             BlockState updatedState = block.getState();
-            if (!(updatedState instanceof org.bukkit.block.Jukebox jukebox)) return;
+            if (!(updatedState instanceof Jukebox jukebox)) return;
 
             if (!jukebox.hasRecord()) return;
 
             ItemStack record = jukebox.getRecord();
-            EmotionTriggerBus.fire(
-                    EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC,
-                    player,
-                    record
-            );
-
-        }, 20L * new Random().nextInt(7, 20));
+            EmotionTriggerBus.fire(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, player, record);
+        }, 20L * new Random().nextInt(20, 50));
     }
 
 }

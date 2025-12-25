@@ -60,9 +60,9 @@ public class EmotionManager {
             section = config.createSection(uuid.toString());
 
         if (!section.contains(emotion.getId())) {
-            section.set(emotion.getId(), 0);
+            section.set(emotion.getId(), emotion.getDefaultValue());
             save();
-            return 0;
+            return emotion.getDefaultValue();
         }
 
         return section.getInt(emotion.getId());
