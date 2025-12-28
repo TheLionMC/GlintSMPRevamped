@@ -2,12 +2,16 @@ package com.glintsmp.emotion;
 
 import com.glintsmp.emotion.Commands.Command;
 import com.glintsmp.emotion.Commands.Commands.Ability.AbilityActivate;
+import com.glintsmp.emotion.Commands.Commands.CoreProtect.ProtectCommand;
+import com.glintsmp.emotion.Commands.Commands.CoreProtect.ProtectPos1;
+import com.glintsmp.emotion.Commands.Commands.CoreProtect.ProtectPos2;
 import com.glintsmp.emotion.Commands.Commands.Emotion.DecreaseEmotion;
 import com.glintsmp.emotion.Commands.Commands.Emotion.IncreaseEmotion;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustAdd;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustCheck;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
+import com.glintsmp.emotion.CoreProtect.CoreProtectManager;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionListenerRegistry;
 import com.glintsmp.emotion.Listeners.CustomEvents;
 import com.glintsmp.emotion.Managers.*;
@@ -41,6 +45,7 @@ public final class GlintSMP extends JavaPlugin {
         RelationshipManager.initialize(this);
         ActionbarManager.initialize(this);
         LifeManager.initialize(this);
+        CoreProtectManager.initialize(this);
 
         EmotionListenerRegistry.registerAll();
 
@@ -48,6 +53,7 @@ public final class GlintSMP extends JavaPlugin {
         Command emotionCommand = new Command();
         Command trustCommand = new Command();
         Command abilityCommand = new Command();
+        Command coreCommand = new Command();
 
         //registering sub commands
         emotionCommand.registerSubCommand(new IncreaseEmotion());
@@ -57,19 +63,23 @@ public final class GlintSMP extends JavaPlugin {
         trustCommand.registerSubCommand(new TrustRemove());
         trustCommand.registerSubCommand(new TrustList());
         trustCommand.registerSubCommand(new TrustCheck());
-        //registering sub commands
-        
-        //finally actually applying the registration
+
         abilityCommand.registerSubCommand(new AbilityActivate());
 
+        coreCommand.registerSubCommand(new ProtectCommand());
+        coreCommand.registerSubCommand(new ProtectPos1());
+        coreCommand.registerSubCommand(new ProtectPos2());
+
+        //finally actually applying the registration
         Objects.requireNonNull(getCommand("Emotion")).setExecutor(emotionCommand);
-        Objects.requireNonNull(getCommand("trust")).setExecutor(trustCommand);
+        Objects.requireNonNull(getCommand("Trust")).setExecutor(trustCommand);
         Objects.requireNonNull(getCommand("Ability")).setExecutor(abilityCommand);
+        Objects.requireNonNull(getCommand("Core")).setExecutor(coreCommand);
 
         // Listeners
         RelationshipDecay.start(this);
 
-        // Event Handlers
+        //Event Handlers
         Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
         Bukkit.getPluginManager().registerEvents(new CustomEvents(), this);
     }

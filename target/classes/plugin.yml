@@ -8,9 +8,14 @@ commands:
     description: Manage emotions
     usage: /Emotion <subcommand>
     aliases: [emt, emotion]
-    permission: glintsmp.staff
+    permission: glint.staff
+  Core:
+    description: Manage emotions
+    usage: /Core <subcommand>
+    aliases: [ C ]
+    permission: glint.staff
 
-  trust:
+  Trust:
     description: Trust System
     usage: /trust <subcommand>
     aliases: [t, Team]
