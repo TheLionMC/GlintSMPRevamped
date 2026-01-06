@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/main/java/com/glintsmp/OneDrive/Desktop/Emotion/src/main/java/com/glintsmp/emotion/RelationshipAlgorithm/Triggers/TriggerListener.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/main/java/com/glintsmp/OneDrive/Desktop/Emotion/src/main/java/com/glintsmp/emotion/RelationshipAlgorithm/Triggers/TriggerListener.java" />
+              <option name="originalContent" value="&#10;" />
+              <option name="updatedContent" value="package com.glintsmp.emotion.RelationshipAlgorithm.Triggers;&#10;&#10;&#10;// Intentionally empty." />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/glintsmp/emotion/RelationshipAlgorithm/Triggers/TriggerEventHandler.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/main/java/com/glintsmp/emotion/RelationshipAlgorithm/Triggers/TriggerEventHandler.java" />
+              <option name="originalContent" value="package com.glintsmp.emotion.RelationshipAlgorithm.Triggers;&#10;&#10;import com.glintsmp.emotion.GlintSMP;&#10;import org.bukkit.Bukkit;&#10;import org.bukkit.event.EventHandler;&#10;import org.bukkit.event.Listener;&#10;import org.bukkit.event.player.PlayerJoinEvent;&#10;&#10;/**&#10; * Ensures TriggerRegistry is populated and performs a harmless access of all triggers&#10; * when a player joins (so the classes are referenced at runtime).&#10; */&#10;public class TriggerEventHandler implements Listener {&#10;&#10;    public TriggerEventHandler() {&#10;        // Ensure registry populated at construction time&#10;        TriggerRegistry.registerAll();&#10;        Bukkit.getLogger().info(&quot;TriggerRegistry: registered &quot; + TriggerRegistry.all().size() + &quot; triggers.&quot;);&#10;&#10;        // Register the detailed trigger listener which fires triggers on game events&#10;        Bukkit.getPluginManager().registerEvents(new TriggerListener(), GlintSMP.getInstance());&#10;    }&#10;&#10;    @EventHandler&#10;    public void onPlayerJoin(PlayerJoinEvent e) {&#10;        // Touch the registry so the classes are referenced; do not modify game state.&#10;        int count = 0;&#10;        for (Trigger t : TriggerRegistry.all()) {&#10;            if (t != null) {&#10;                // call getId() to reference the object&#10;                String id = t.getId();&#10;                if (id != null) count++;&#10;            }&#10;        }&#10;        Bukkit.getLogger().info(&quot;TriggerRegistry: player &quot; + e.getPlayer().getName() + &quot; saw &quot; + count + &quot; triggers.&quot;);&#10;    }&#10;}&#10;" />
+              <option name="updatedContent" value="package com.glintsmp.emotion.RelationshipAlgorithm.Triggers;&#10;&#10;import com.glintsmp.emotion.GlintSMP;&#10;import org.bukkit.event.EventHandler;&#10;import org.bukkit.event.Listener;&#10;import org.bukkit.event.player.PlayerJoinEvent;&#10;&#10;/**&#10; * Ensures TriggerRegistry is populated and performs a harmless access of all triggers&#10; * when a player joins (so the classes are referenced at runtime).&#10; */&#10;public class TriggerEventHandler implements Listener {&#10;&#10;    public TriggerEventHandler() {&#10;        // Ensure registry populated at construction time&#10;        TriggerRegistry.registerAll();&#10;        GlintSMP.logger.info(&quot;TriggerRegistry: registered &quot; + TriggerRegistry.all().size() + &quot; triggers.&quot;);&#10;&#10;        // Register the detailed trigger listener which fires triggers on game events&#10;        org.bukkit.Bukkit.getPluginManager().registerEvents(new TriggerListener(), GlintSMP.getInstance());&#10;    }&#10;&#10;    @EventHandler&#10;    public void onPlayerJoin(PlayerJoinEvent e) {&#10;        // Touch the registry so the classes are referenced; do not modify game state.&#10;        int count = 0;&#10;        for (Trigger t : TriggerRegistry.all()) {&#10;            if (t != null) {&#10;                // call getId() to reference the object&#10;                String id = t.getId();&#10;                if (id != null) count++;&#10;            }&#10;        }&#10;        GlintSMP.logger.info(&quot;TriggerRegistry: player &quot; + e.getPlayer().getName() + &quot; saw &quot; + count + &quot; triggers.&quot;);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

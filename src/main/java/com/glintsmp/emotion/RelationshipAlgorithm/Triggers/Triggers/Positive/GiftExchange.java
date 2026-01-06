@@ -1,16 +1,18 @@
 package com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive;
 
+import com.glintsmp.emotion.Managers.RelationshipManager;
 import com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Trigger;
+import org.bukkit.entity.Player;
 
-public class Gifting extends Trigger {
+public class GiftExchange extends Trigger {
 
-    public Gifting() {
-        super("gifting");
+    public GiftExchange() {
+        super("giftexchange");
     }
 
     @Override
     public int change(int strength, boolean positive) {
-        int mult = 2; // gifts are meaningful
+        int mult = 1;
         int s = Math.max(1, strength * mult);
         if (positive) {
             int inc = computeIncrease(s);
@@ -22,3 +24,4 @@ public class Gifting extends Trigger {
         }
     }
 }
+

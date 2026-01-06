@@ -1,7 +1,5 @@
 package com.glintsmp.emotion.RelationshipAlgorithm.Triggers;
 
-import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipAlgorithm;
-
 import java.util.Random;
 
 public abstract class Trigger {

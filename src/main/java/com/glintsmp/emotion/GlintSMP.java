@@ -14,9 +14,12 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
 import com.glintsmp.emotion.CoreProtect.CoreProtectManager;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionListenerRegistry;
 import com.glintsmp.emotion.Listeners.CustomEvents;
+import com.glintsmp.emotion.Listeners.PlayerDeathListener;
+import com.glintsmp.emotion.Listeners.RightClickLifeEvent;
 import com.glintsmp.emotion.Managers.*;
 import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipDecay;
 import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipEventHandler;
+import com.glintsmp.emotion.RelationshipAlgorithm.Triggers.TriggerEventHandler;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -82,6 +85,9 @@ public final class GlintSMP extends JavaPlugin {
         //Event Handlers
         Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
         Bukkit.getPluginManager().registerEvents(new CustomEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new TriggerEventHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new RightClickLifeEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(), this);
     }
 
     @Override
