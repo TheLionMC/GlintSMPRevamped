@@ -1,7 +1,7 @@
 package com.glintsmp.emotion.Commands.Commands.CoreProtect;
 
 import com.glintsmp.emotion.Commands.SubCommand;
-import com.glintsmp.emotion.Utils.Pair;
+import com.glintsmp.emotion.Utils.Objects.Pair;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;

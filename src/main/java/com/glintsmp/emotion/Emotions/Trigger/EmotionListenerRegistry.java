@@ -28,7 +28,6 @@ public class EmotionListenerRegistry {
                     Method method = clazz.getDeclaredMethod("init");
                     method.invoke(created);
                 } catch (NoSuchMethodException ignore) {}
-
             } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }

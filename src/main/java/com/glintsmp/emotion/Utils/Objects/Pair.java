@@ -1,4 +1,4 @@
-package com.glintsmp.emotion.Utils;
+package com.glintsmp.emotion.Utils.Objects;
 
 public class Pair<L, R> {
 

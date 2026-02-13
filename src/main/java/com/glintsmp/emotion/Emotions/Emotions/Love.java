@@ -1,12 +1,13 @@
 package com.glintsmp.emotion.Emotions.Emotions;
 
+import com.glintsmp.emotion.Emotions.Ability.Abilities.Heal;
 import com.glintsmp.emotion.Emotions.Emotion;
 import org.bukkit.entity.Player;
 
 public class Love extends Emotion {
 
     public Love() {
-        super("love", null);
+        super("love", new Heal());
     }
 
     @Override

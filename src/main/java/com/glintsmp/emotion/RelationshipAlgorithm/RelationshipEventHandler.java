@@ -3,9 +3,14 @@ package com.glintsmp.emotion.RelationshipAlgorithm;
 import com.glintsmp.emotion.GlintSMP;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.*;
-import org.bukkit.event.*;
-import org.bukkit.event.entity.*;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
@@ -181,14 +186,6 @@ public class RelationshipEventHandler implements Listener {
                     }
                 }
             }, 40L);
-        }
-    }
-
-    @EventHandler
-    public void onChat(AsyncChatEvent e) {
-        Player p = e.getPlayer();
-        for (Player o : near(p, 20)) {
-            if (!o.equals(p)) apply(p.getUniqueId(), o.getUniqueId(), 1, true);
         }
     }
 

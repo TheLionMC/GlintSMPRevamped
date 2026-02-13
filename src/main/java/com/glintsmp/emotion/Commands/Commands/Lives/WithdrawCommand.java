@@ -2,13 +2,12 @@ package com.glintsmp.emotion.Commands.Commands.Lives;
 
 import com.glintsmp.emotion.Commands.SubCommand;
 import com.glintsmp.emotion.Managers.LifeManager;
-import com.glintsmp.emotion.Managers.TrustManager;
-import com.glintsmp.emotion.Utils.CheckUtils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,42 +22,45 @@ public class WithdrawCommand extends SubCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-
+        if (!(sender instanceof Player player)) return true;
         if (args.length != 2) {
-            sender.sendMessage(Component.text("Invalid input /lives withdraw <amount>", NamedTextColor.RED));
+            sender.sendMessage(Component.text("Invalid usage: /life withdraw <amount>", NamedTextColor.RED));
             return true;
         }
 
-        int val = CheckUtils.isInt(args[1]);
-
-        if (val > 5 || val < 1) {
-            sender.sendMessage(Component.text("You did not provide a valid number (1-5)", NamedTextColor.RED));
+        int amount;
+        try {
+            amount = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            sender.sendMessage(Component.text("Pleas enter a valid number \uD83D\uDE21"));
             return true;
         }
 
-        Player player = (Player) sender;
-
-        int currentLives = LifeManager.getLives(player.getUniqueId());
-
-        if (val > currentLives) {
-            sender.sendMessage(Component.text("You do not have the amount of lives required", NamedTextColor.RED));
+        int current = LifeManager.getLives(player.getUniqueId());
+        if (amount >= current) {
+            player.sendMessage(Component.text("You do not have enough lives to withdraw " + amount,
+                    NamedTextColor.RED));
             return true;
         }
 
-        LifeManager.setLives(player.getUniqueId(), currentLives - val);
+        Inventory inventory = player.getInventory();
 
-        ItemStack lifeItem = LifeManager.getLifeItem();
+        ItemStack itemStack = LifeManager.getItem().getItemStack(player);
 
-        lifeItem.setAmount(val);
+        int amountWithdrawn = 0;
+        for (int i = 1; i <= amount; i++) {
+            if (inventory.firstEmpty() == -1) {
+                player.sendMessage(Component.text("Failed to withdraw all lives, not enough inventory space.",
+                        NamedTextColor.RED));
+                break;
+            }
 
-        if (player.getInventory().firstEmpty() == -1) {
-            sender.sendMessage(Component.text("You do not have the inventory space required", NamedTextColor.RED));
-            return true;
+            amountWithdrawn++;
+            inventory.addItem(itemStack.clone());
         }
 
-        player.getInventory().addItem(lifeItem);
-        sender.sendMessage(Component.text("You successfully withdrew " + args[1] + "lives", NamedTextColor.GREEN));
-
+        LifeManager.decrementLives(player.getUniqueId(), amountWithdrawn);
+        player.sendMessage(Component.text("Successfully withdrew " + amountWithdrawn + " lives", NamedTextColor.GREEN));
         return true;
     }
 

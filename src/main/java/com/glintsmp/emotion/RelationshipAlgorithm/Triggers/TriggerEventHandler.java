@@ -31,6 +31,7 @@ public class TriggerEventHandler implements Listener {
                 if (id != null) count++;
             }
         }
+
         GlintSMP.logger.info("TriggerRegistry: player " + e.getPlayer().getName() + " saw " + count + " triggers.");
     }
 }

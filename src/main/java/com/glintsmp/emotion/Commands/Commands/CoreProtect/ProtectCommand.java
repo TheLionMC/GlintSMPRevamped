@@ -3,7 +3,7 @@ package com.glintsmp.emotion.Commands.Commands.CoreProtect;
 import com.glintsmp.emotion.Commands.SubCommand;
 import com.glintsmp.emotion.CoreProtect.CoreProtectManager;
 import com.glintsmp.emotion.CoreProtect.ProtectedRegion;
-import com.glintsmp.emotion.Utils.Pair;
+import com.glintsmp.emotion.Utils.Objects.Pair;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
@@ -24,7 +24,7 @@ public class ProtectCommand extends SubCommand {
     public static final Map<UUID, Pair<Location, Location>> region = new HashMap<>();
 
     public ProtectCommand() {
-        super("protect", "protects the selected region", "");
+        super("protect", "protects the selected region", "glint.staff");
     }
 
     @Override

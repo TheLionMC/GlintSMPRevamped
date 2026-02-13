@@ -38,7 +38,6 @@ public final class TriggerRegistry {
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.SharedQuest());
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.SharedVictory());
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.SharingKnowledge());
-        add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.Sparring());
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.Supporting());
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.Teaching());
         add(new com.glintsmp.emotion.RelationshipAlgorithm.Triggers.Triggers.Positive.Teamwork());

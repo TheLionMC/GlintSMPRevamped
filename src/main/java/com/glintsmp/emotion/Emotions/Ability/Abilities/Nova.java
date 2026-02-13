@@ -2,7 +2,6 @@ package com.glintsmp.emotion.Emotions.Ability.Abilities;
 
 import com.glintsmp.emotion.Emotions.Ability.Ability;
 import com.glintsmp.emotion.Emotions.Emotion;
-
 import com.glintsmp.emotion.GlintSMP;
 import com.glintsmp.emotion.Managers.TrustManager;
 import com.glintsmp.emotion.Utils.ParticleUtils;
@@ -14,7 +13,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-public class Shockwave implements Ability {
+public class Nova implements Ability {
 
     @Override
     public boolean activate(Player player, Emotion emotion) {
@@ -23,10 +22,10 @@ public class Shockwave implements Ability {
 
         player.playSound(center, Sound.ITEM_MACE_SMASH_GROUND_HEAVY,5,1);
 
-        int damage = value >= 100 ? 35 : 25;
-        int knockback = value >= 100 ? 4 : 2;
+        int damage = value >= 100 ? 30 : 20;
+        int knockback = value >= 100 ? 2 : 1;
 
-        for (int i = 1; i <= 11; i++) {
+        for (int i = 1; i <= 5; i++) {
             int finalI = i;
             GlintSMP.runTaskLater(() ->
                     ParticleUtils.spawnCircle(center,
@@ -34,7 +33,7 @@ public class Shockwave implements Ability {
                     (i - 1) * 2);
         }
 
-        for (LivingEntity target : center.getNearbyLivingEntities(12,3,12)) {
+        for (LivingEntity target : center.getNearbyLivingEntities(6,3,6)) {
             if (target.equals(player) || TrustManager.isTrusted(player.getUniqueId(), target.getUniqueId())) continue;
 
             Vector direction = target.getLocation().toVector()

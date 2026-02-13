@@ -40,8 +40,6 @@ public class TrustCheck extends SubCommand {
             sender.sendMessage(Component.text("Player: " + player.getName() + " is trusted.", NamedTextColor.GREEN));
         else
             sender.sendMessage(Component.text("Player: " + player.getName() + " is not trusted.", NamedTextColor.RED));
-
-
         return true;
     }
 

@@ -14,6 +14,14 @@ commands:
     usage: /Core <subcommand>
     aliases: [ C ]
     permission: glint.staff
+  Ghost:
+    description: Manage the ghost system
+    usage: /Ghost <subcommand>
+    permission: glint.staff
+  Testing:
+    description: All the commands to test random stuff
+    usage: /Testing <subcommand>
+    permission: glint.op
 
   Trust:
     description: Trust System
@@ -22,3 +30,9 @@ commands:
   Ability:
     description: ability related commands
     usage: /Ability <subcommand>
+  Life:
+    description: Manage the lives
+    usage: /Life <subcommand>
+  Item:
+    description: Item related commands
+    usage: /Item <subcommand>

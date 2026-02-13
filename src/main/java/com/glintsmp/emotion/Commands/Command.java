@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +16,15 @@ public class Command implements CommandExecutor, TabCompleter {
 
     private final List<SubCommand> subCommands = new ArrayList<>();
 
+    private CommandExecutor executor;
+
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, org.bukkit.command.@NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, org.bukkit.command.@NotNull Command command, @NotNull String label, String @NonNull [] args) {
         if (args.length == 0) {
-            sender.sendMessage(Component.text("Invalid command usage /" + label + " <subCommand>")
+            if (executor == null)
+                sender.sendMessage(Component.text("Invalid command usage /" + label + " <subCommand>")
                     .color(NamedTextColor.RED));
+            else executor.onCommand(sender, command, label, args);
             return true;
         }
 
@@ -55,6 +60,11 @@ public class Command implements CommandExecutor, TabCompleter {
         }
 
         return collections;
+    }
+
+    public Command setExecutor(CommandExecutor executor) {
+        this.executor = executor;
+        return this;
     }
 
     public void registerSubCommand(SubCommand subCommand) {

@@ -4,6 +4,7 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionListener;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.GlintSMP;
+import com.glintsmp.emotion.Utils.TickUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
@@ -15,6 +16,7 @@ public class EmotionTicks {
 
     public void init() {
         lonelyTicker();
+        pingTicker();
     }
 
     private BukkitTask lonelyTicker() {
@@ -28,6 +30,18 @@ public class EmotionTicks {
             }
 
             return true;
-        }, 0,20 * 60);
+        }, 0,TickUtils.minute(1));
+    }
+
+    private BukkitTask pingTicker() {
+        return GlintSMP.runTaskTimer(tick -> {
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                int ping = player.getPing();
+
+                if (ping >= 300)
+                    EmotionTriggerBus.fire(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, player, ping);
+            }
+            return true;
+        }, 0, TickUtils.second(30));
     }
 }

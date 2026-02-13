@@ -137,13 +137,12 @@ public class EmotionManager {
         registerEmotion(new Anger());
         registerEmotion(new Boredom());
         registerEmotion(new Confidence());
-        registerEmotion(new Excitement());
         registerEmotion(new Fear());
         registerEmotion(new Loneliness());
         registerEmotion(new Love());
         registerEmotion(new Sadness());
-        registerEmotion(new Shock());
         registerEmotion(new Surprise());
+        registerEmotion(new Hatred());
     }
 
     public static void registerEmotion(Emotion emotion) {

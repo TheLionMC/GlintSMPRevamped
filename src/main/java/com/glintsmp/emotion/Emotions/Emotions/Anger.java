@@ -1,6 +1,6 @@
 package com.glintsmp.emotion.Emotions.Emotions;
 
-import com.glintsmp.emotion.Emotions.Ability.Abilities.Shockwave;
+import com.glintsmp.emotion.Emotions.Ability.Abilities.Nova;
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import org.bukkit.entity.Player;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 public class Anger extends Emotion {
 
     public Anger() {
-        super("anger", new Shockwave());
+        super("anger", new Nova());
 
         addTrigger(EmotionTrigger.PLAYER_DEATH_BY_PLAYER, Type.POSITIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_KILLED_PLAYER, Type.POSITIVE, 1);

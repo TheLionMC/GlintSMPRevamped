@@ -4,8 +4,8 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionListener;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.GlintSMP;
+import com.glintsmp.emotion.Utils.TickUtils;
 import io.papermc.paper.event.player.PlayerDeepSleepEvent;
-import net.kyori.adventure.text.Component;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Jukebox;
@@ -61,7 +61,6 @@ public class CalmListener implements Listener {
 
             ItemStack record = jukebox.getRecord();
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, player, record);
-        }, 20L * new Random().nextInt(20, 50));
+        }, TickUtils.second(new Random().nextInt(20, 60)));
     }
-
 }

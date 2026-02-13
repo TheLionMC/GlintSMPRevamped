@@ -1,20 +1,22 @@
 package com.glintsmp.emotion.CoreProtect;
 
-import com.glintsmp.emotion.Emotions.Emotions.*;
 import com.glintsmp.emotion.GlintSMP;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.BoundingBox;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CoreProtectManager implements Listener {
@@ -30,7 +32,7 @@ public class CoreProtectManager implements Listener {
 
         return new ProtectedRegion(corner1.getWorld(), new BoundingBox(
                 corner1.getX(), corner1.getY(), corner1.getZ(),
-                corner2.getX(), corner2.getY(), corner2.getZ()));
+                corner2.getX(), corner2.getY(), corner2.getZ()), List.of());
     }
 
     public static void protect(String name, ProtectedRegion region) {
@@ -70,6 +72,7 @@ public class CoreProtectManager implements Listener {
 
         config.set(path + ".world", region.world().getName());
         config.set(path + ".box", region.boundingBox().serialize());
+        config.set(path + ".whitelist", region.whitelist().stream().map(Enum::name));
 
         save();
     }
@@ -115,7 +118,10 @@ public class CoreProtectManager implements Listener {
                     Math.max(minZ, maxZ)
             );
 
-            protectedRegions.put(name, new ProtectedRegion(world, boundingBox));
+            @Nullable List<Material> whitelist = region.getStringList("whitelist")
+                    .stream().map(Material::valueOf).toList();
+
+            protectedRegions.put(name, new ProtectedRegion(world, boundingBox, whitelist));
 
             GlintSMP.logger.info("Loaded region: " + name);
         }

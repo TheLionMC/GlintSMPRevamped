@@ -14,27 +14,16 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.projectiles.ProjectileSource;
 
-import java.util.Collection;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Central listener that maps common in-game events to Trigger IDs and
  * applies the Trigger change using RelationshipAdjuster.
- *
  * This file now contains a heuristic mapping so every trigger ID from
  * TriggerRegistry is invoked from at least one in-game event. The mapping
  * is intentionally conservative and can be tuned later.
@@ -130,22 +119,6 @@ public class TriggerListener implements Listener {
             String id = en.getKey();
             if (exclude != null && exclude.contains(id)) continue;
             applyTrigger(src, tgt, id, strength, en.getValue());
-        }
-    }
-
-    @EventHandler
-    public void onPlayerChat(AsyncChatEvent e) {
-        Player p = e.getPlayer();
-        Collection<Player> nearby = p.getNearbyEntities(20,20,20).stream().filter(en->en instanceof Player).map(en->(Player)en).toList();
-        for (Player o : nearby) {
-            if (o.equals(p)) continue;
-            Set<String> applied = new HashSet<>();
-            applyTrigger(p.getUniqueId(), o.getUniqueId(), "storytelling", 1, true); applied.add("storytelling");
-            applyTrigger(p.getUniqueId(), o.getUniqueId(), "sharingknowledge", 1, true); applied.add("sharingknowledge");
-            applyTrigger(p.getUniqueId(), o.getUniqueId(), "complimenting", 1, true); applied.add("complimenting");
-            applyTrigger(p.getUniqueId(), o.getUniqueId(), "rumors", 1, false); applied.add("rumors");
-
-            fireMappedTriggers(EventType.CHAT, p.getUniqueId(), o.getUniqueId(), 1, applied);
         }
     }
 
