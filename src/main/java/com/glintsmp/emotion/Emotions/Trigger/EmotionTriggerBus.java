@@ -40,3 +40,4 @@ public class EmotionTriggerBus {
                 .put(emotionTrigger, cooldown);
     }
 }
+

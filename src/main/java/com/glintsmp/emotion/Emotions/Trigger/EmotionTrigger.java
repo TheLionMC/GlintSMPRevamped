@@ -8,18 +8,26 @@ public enum EmotionTrigger {
     //Deaths
     PLAYER_DEATH_BY_PLAYER(emptyCooldown()), /** Triggered **/
     PLAYER_KILLED_PLAYER(emptyCooldown()), /** Triggered **/
+    PLAYER_DEATH_EXPLOSION(null), /** Triggered **/
     PET_KILLED(simpleCooldown(200)), /** Triggered **/
+    PLAYER_WITNESS_DEATH(null), /** Triggered **/
 
     //Damage
     PLAYER_DAMAGED_BY_PLAYER(null), /** Triggered **/
+    PLAYER_DAMAGED_BY_MOB(null),
 
     //Chats
     PLAYER_CHATS(null), /** Triggered **/
     PLAYER_RECEIVES_MESSAGE(null), /** Triggered **/
+    PLAYER_RECEIVE_ADVANCEMENT_NORMAL(null),
+    PLAYER_RECEIVE_ADVANCEMENT_TOAST(null),
 
     //EVENT, These will be called once we start creating events
     PLAYER_LOST_EVENT(null),
     PLAYER_WINS_EVENT(null),
+
+    //Env shit
+    PLAYER_DEFEATS_BOSS(null),
 
     //Calm
     PLAYER_EATS_FOOD(null), /** Triggered **/
@@ -34,11 +42,13 @@ public enum EmotionTrigger {
     //Ticks
     ALONE_MINUTE(null), /** Triggered **/
     WITH_PLAYER_MINUTE(null),  /** Triggered **/
+    GENERAL_DECREASE(null), /** Triggered **/
+    GENERAL_INCREASE(null), /** Triggered **/
 
     //Utils
     PLAYER_TOOL_BREAK(null), /** Triggered **/
     PLAYER_EXPERIENCES_LAG_SPIKE(null), /** Triggered **/
-    PLAYER_ITEM_STOLEN(null);
+    PLAYER_ITEM_STOLEN(null); /** Triggered **/
 
     private final CooldownSupplier supplier;
 

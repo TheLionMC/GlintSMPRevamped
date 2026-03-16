@@ -4,11 +4,17 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionListener;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.Utils.ChatUtils;
+import io.papermc.paper.advancement.AdvancementDisplay;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
+import org.bukkit.advancement.Advancement;
+import org.bukkit.advancement.AdvancementDisplayType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerAdvancementDoneEvent;
+
+import java.util.Objects;
 
 @EmotionListener
 public class ChatListener implements Listener {
@@ -24,6 +30,19 @@ public class ChatListener implements Listener {
 
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVES_MESSAGE, target,
                     event.message(), player);
+        }
+    }
+
+    @EventHandler
+    public void playerAdvancement(PlayerAdvancementDoneEvent event) {
+        AdvancementDisplay.Frame advancement = event.getAdvancement().getDisplay().frame();
+
+        if (event.getAdvancement().getDisplay() == null) return;
+
+        if (advancement == AdvancementDisplay.Frame.CHALLENGE) {
+            EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_TOAST, event.getPlayer());
+        } else {
+            EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_NORMAL, event.getPlayer());
         }
     }
 }

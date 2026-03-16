@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.Collection;
+import java.util.Random;
 
 @EmotionListener
 public class EmotionTicks {
@@ -17,6 +18,7 @@ public class EmotionTicks {
     public void init() {
         lonelyTicker();
         pingTicker();
+        generalTicker();
     }
 
     private BukkitTask lonelyTicker() {
@@ -38,10 +40,20 @@ public class EmotionTicks {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 int ping = player.getPing();
 
-                if (ping >= 300)
+                if (ping >= 250)
                     EmotionTriggerBus.fire(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, player, ping);
             }
             return true;
         }, 0, TickUtils.second(30));
+    }
+
+    private BukkitTask generalTicker() {
+        return  GlintSMP.runTaskTimer(tick -> {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                EmotionTriggerBus.fire(EmotionTrigger.GENERAL_DECREASE, p);
+                EmotionTriggerBus.fire(EmotionTrigger.GENERAL_INCREASE, p);
+            }
+            return true;
+        }, 0, TickUtils.hour(1));
     }
 }

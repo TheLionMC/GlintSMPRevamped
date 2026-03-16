@@ -4,6 +4,7 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionListener;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.Managers.TrustManager;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,5 +22,15 @@ public class DamageListener implements Listener {
 
         EmotionTriggerBus.fire(EmotionTrigger.PLAYER_DAMAGED_BY_PLAYER, player,
                 damager, event.getDamage());
+    }
+
+    @EventHandler
+    public void entityDamagerPlayer(EntityDamageByEntityEvent event) {
+        if (event.getDamager() instanceof Player p) return;
+
+        Entity damager = event.getDamager();
+        Player damaged = (Player) event.getEntity();
+
+        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_DAMAGED_BY_MOB, damaged, damager, event.getDamage());
     }
 }

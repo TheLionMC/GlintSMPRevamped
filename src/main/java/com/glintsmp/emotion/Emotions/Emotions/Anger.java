@@ -17,18 +17,21 @@ public class Anger extends Emotion {
         addTrigger(EmotionTrigger.PLAYER_LOST_EVENT, Type.POSITIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_ITEM_STOLEN, Type.POSITIVE, 1);
         addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 1);
-        addTrigger(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, Type.POSITIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, Type.POSITIVE, 1); // <- TheTigerMCYT
+        addTrigger(EmotionTrigger.PLAYER_DAMAGED_BY_MOB, Type.POSITIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_DEATH_EXPLOSION, Type.POSITIVE, 1);
 
         addTrigger(EmotionTrigger.PLAYER_WINS_EVENT, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_EATS_FOOD, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_SLEEPS, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_REGEN_HEALTH, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, Type.NEGATIVE, 1);
+        addTrigger(EmotionTrigger.GENERAL_DECREASE, Type.NEGATIVE, 1);
     }
 
     @Override
     public void onIncrease(Player player, int value) {
-        //TODO: Make a trigger to incerase/decrease their anger emotion
+        //TODO: Make a trigger to increase/decrease their anger emotion
     }
 
     @Override
