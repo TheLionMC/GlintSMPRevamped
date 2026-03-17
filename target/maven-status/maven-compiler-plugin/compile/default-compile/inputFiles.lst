@@ -18,10 +18,13 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\C
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\CoreProtect\CoreProtectListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\CoreProtect\CoreProtectManager.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\CoreProtect\ProtectedRegion.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\AdrenalineRush.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\Clumsiness.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\ConfidenceBoost.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\HatredUnleashed.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\Heal.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\Nova.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Abilities\ShockParalysis.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Ability\Ability.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Emotion.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\EmotionAlgorithm.java
@@ -45,6 +48,7 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\E
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\DamageListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\DeathListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\EmotionTicks.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\EnvListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\UtilsListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionDecreaseEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionIncreaseEvent.java
@@ -129,8 +133,9 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\R
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Trading.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ChatUtils.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\CheckUtils.java
-C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Cooldown.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ItemBuilder.java
-C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Pair.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Objects\Cooldown.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Objects\CooldownSupplier.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\Objects\Pair.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\ParticleUtils.java
-C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\TestPacket.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Utils\TickUtils.java

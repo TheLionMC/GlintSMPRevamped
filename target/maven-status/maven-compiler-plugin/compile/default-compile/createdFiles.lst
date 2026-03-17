@@ -29,12 +29,12 @@ com\glintsmp\emotion\Utils\ParticleUtils.class
 com\glintsmp\emotion\Item\ItemManager.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Corruption.class
 com\glintsmp\emotion\Utils\ChatUtils.class
+com\glintsmp\emotion\Utils\Objects\Pair.class
 com\glintsmp\emotion\Commands\Commands\Trust\TrustAdd.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\DeathListener.class
 com\glintsmp\emotion\Emotions\Ability\Ability.class
 com\glintsmp\emotion\Managers\ActionbarManager.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Scamming.class
-com\glintsmp\emotion\Utils\TestPacket.class
 com\glintsmp\emotion\Commands\Commands\Emotion\DecreaseEmotion.class
 com\glintsmp\emotion\Commands\Commands\Ghost\GhostWorldCommand.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\SharedVictory.class
@@ -57,12 +57,15 @@ com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Harassment
 com\glintsmp\emotion\Emotions\Ability\Abilities\ConfidenceBoost.class
 com\glintsmp\emotion\Emotions\Ability\Abilities\Nova.class
 com\glintsmp\emotion\Commands\Commands\Lives\SetLivesCommand.class
+com\glintsmp\emotion\Emotions\Ability\Abilities\ShockParalysis.class
+com\glintsmp\emotion\Emotions\Ability\Abilities\Clumsiness.class
 com\glintsmp\emotion\Utils\CheckUtils.class
 com\glintsmp\emotion\Managers\EmotionManager.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\PlanTogether.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Poisoning.class
 com\glintsmp\emotion\Commands\Commands\Trust\TrustList.class
 com\glintsmp\emotion\Managers\LifeManager.class
+com\glintsmp\emotion\Utils\TickUtils.class
 com\glintsmp\emotion\Emotions\Emotions\Sadness.class
 com\glintsmp\emotion\Events\PlayerGhostEvent.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\TriggerListener$DropMeta.class
@@ -74,6 +77,8 @@ com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\FightingWi
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\CookTogether.class
 com\glintsmp\emotion\Emotions\Emotions\Fear.class
 com\glintsmp\emotion\Emotions\Ability\Abilities\HatredUnleashed.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\EnvListener.class
+com\glintsmp\emotion\Utils\Objects\CooldownSupplier.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\UtilsListener.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\BuildingTogether.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionTrigger.class
@@ -81,6 +86,7 @@ com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler$InteractionW
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\HelpingHand.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\TriggerListener.class
 com\glintsmp\emotion\Ghost\GhostManager.class
+com\glintsmp\emotion\Emotions\Ability\Abilities\AdrenalineRush.class
 com\glintsmp\emotion\Emotions\Passive\Passives\PotionPassive.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Complimenting.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Guiding.class
@@ -101,10 +107,10 @@ com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Backstabbi
 com\glintsmp\emotion\Events\EmotionIncreaseEvent.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Exploiting.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionListenerRegistry.class
+com\glintsmp\emotion\Utils\TickUtils$Time.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Trigger.class
 com\glintsmp\emotion\Emotions\EmotionAlgorithm.class
 com\glintsmp\emotion\Commands\Commands\Item\GiveItemCommand.class
-com\glintsmp\emotion\Utils\Pair.class
 com\glintsmp\emotion\Emotions\Emotions\Loneliness.class
 com\glintsmp\emotion\Item\Consumable.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipUtils.class
@@ -122,8 +128,10 @@ com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Stealing.c
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler$1.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Pickpocket.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipAlgorithm.class
+com\glintsmp\emotion\Utils\Objects\Cooldown.class
 com\glintsmp\emotion\RelationshipAlgorithm\RelationshipEventHandler$InteractionKey.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Ignoring.class
+com\glintsmp\emotion\Emotions\Ability\Abilities\Clumsiness$1.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\FriendlyFire.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Mentoring.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\SharingKnowledge.class
@@ -137,7 +145,6 @@ com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Hoarding.c
 com\glintsmp\emotion\Commands\Commands\CoreProtect\ProtectPos1.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\TriggerRegistry.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Excluding.class
-com\glintsmp\emotion\Utils\Cooldown.class
 com\glintsmp\emotion\Managers\TrustManager.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionTriggerBus.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Teamwork.class
