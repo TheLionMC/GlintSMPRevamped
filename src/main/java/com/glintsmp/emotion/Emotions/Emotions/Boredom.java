@@ -1,5 +1,6 @@
 package com.glintsmp.emotion.Emotions.Emotions;
 
+import com.glintsmp.emotion.Emotions.Ability.Abilities.Clumsiness;
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import org.bukkit.entity.Player;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 public class Boredom extends Emotion {
 
     public Boredom() {
-        super("boredom", null);
+        super("boredom", new Clumsiness());
 
         addTrigger(EmotionTrigger.ALONE_MINUTE,Type.POSITIVE,1);
 

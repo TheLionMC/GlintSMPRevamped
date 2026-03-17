@@ -10,7 +10,8 @@ public class Loneliness extends Emotion {
         super("loneliness", null);
         setDefaultValue(40);
 
-        addTrigger(EmotionTrigger.ALONE_MINUTE,Type.POSITIVE,1);
+        addTrigger(EmotionTrigger.ALONE_MINUTE, Type.POSITIVE,1);
+        addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 1);
 
         addTrigger(EmotionTrigger.WITH_PLAYER_MINUTE,Type.NEGATIVE,1);
     }

@@ -1,5 +1,6 @@
 package com.glintsmp.emotion.Emotions.Emotions;
 
+import com.glintsmp.emotion.Emotions.Ability.Abilities.AdrenalineRush;
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionTrigger;
 import org.bukkit.entity.Player;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 public class Fear extends Emotion {
 
     public Fear() {
-        super("fear", null);
+        super("fear", new AdrenalineRush());
 
         addTrigger(EmotionTrigger.PLAYER_DEATH_BY_PLAYER, Type.POSITIVE, 2);
 

@@ -9,7 +9,6 @@ public class Hatred extends Emotion {
 
     public Hatred() {
         super("hatred", new HatredUnleashed());
-
         addTrigger(EmotionTrigger.PLAYER_DEATH_BY_PLAYER, Type.POSITIVE, 2);
         addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 3);
 
