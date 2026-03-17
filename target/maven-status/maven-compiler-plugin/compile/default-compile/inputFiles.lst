@@ -52,6 +52,7 @@ C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\E
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Emotions\Trigger\Listeners\UtilsListener.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionDecreaseEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\EmotionIncreaseEvent.java
+C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\LoseLifeEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Events\PlayerGhostEvent.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Ghost\GhostManager.java
 C:\Users\Roan\IdeaProjects\GlintSMPRevamped\src\main\java\com\glintsmp\emotion\Ghost\GhostWorld.java

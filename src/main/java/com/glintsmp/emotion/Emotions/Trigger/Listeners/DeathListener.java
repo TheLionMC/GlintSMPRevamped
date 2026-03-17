@@ -68,7 +68,7 @@ public class DeathListener implements Listener {
         Player dead = event.getPlayer();
 
         for (Player witness : dead.getLocation().getNearbyPlayers(32)) {
-            if (witness.equals(dead)) continue;
+            if (witness.equals(dead) || witness.equals(dead.getKiller())) continue;
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_WITNESS_DEATH, witness, dead);
         }
     }

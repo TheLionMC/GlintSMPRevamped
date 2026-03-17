@@ -7,14 +7,10 @@ import com.glintsmp.emotion.Utils.ChatUtils;
 import io.papermc.paper.advancement.AdvancementDisplay;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.advancement.Advancement;
-import org.bukkit.advancement.AdvancementDisplayType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
-
-import java.util.Objects;
 
 @EmotionListener
 public class ChatListener implements Listener {
@@ -35,14 +31,14 @@ public class ChatListener implements Listener {
 
     @EventHandler
     public void playerAdvancement(PlayerAdvancementDoneEvent event) {
-        AdvancementDisplay.Frame advancement = event.getAdvancement().getDisplay().frame();
+        AdvancementDisplay display = event.getAdvancement().getDisplay();
+        if (display == null) return;
 
-        if (event.getAdvancement().getDisplay() == null) return;
+        AdvancementDisplay.Frame advancement = display.frame();
 
-        if (advancement == AdvancementDisplay.Frame.CHALLENGE) {
+        if (advancement == AdvancementDisplay.Frame.CHALLENGE)
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_TOAST, event.getPlayer());
-        } else {
+        else
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_NORMAL, event.getPlayer());
-        }
     }
 }

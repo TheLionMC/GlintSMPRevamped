@@ -105,6 +105,7 @@ com\glintsmp\emotion\Emotions\Ability\Abilities\Heal.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Positive\Trading.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Backstabbing.class
 com\glintsmp\emotion\Events\EmotionIncreaseEvent.class
+com\glintsmp\emotion\Events\LoseLifeEvent.class
 com\glintsmp\emotion\RelationshipAlgorithm\Triggers\Triggers\Negative\Exploiting.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionListenerRegistry.class
 com\glintsmp\emotion\Utils\TickUtils$Time.class

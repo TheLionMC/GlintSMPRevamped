@@ -22,15 +22,16 @@ public class DamageListener implements Listener {
 
         EmotionTriggerBus.fire(EmotionTrigger.PLAYER_DAMAGED_BY_PLAYER, player,
                 damager, event.getDamage());
+
+        if (event.getDamage() >= 20)
+            EmotionTriggerBus.fire(EmotionTrigger.HEALTH_DROP, player, event.getDamage());
     }
 
     @EventHandler
     public void entityDamagerPlayer(EntityDamageByEntityEvent event) {
-        if (event.getDamager() instanceof Player p) return;
-
+        if (!(event.getDamager() instanceof Player player)) return;
         Entity damager = event.getDamager();
-        Player damaged = (Player) event.getEntity();
 
-        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_DAMAGED_BY_MOB, damaged, damager, event.getDamage());
+        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_DAMAGED_BY_MOB, player, damager, event.getDamage());
     }
 }
