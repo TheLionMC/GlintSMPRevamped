@@ -26,13 +26,13 @@ public class EmotionTicks {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 Collection<Player> nearby = player.getLocation().getNearbyPlayers(160);
 
-                if (nearby.size() != 1)
+                if (nearby.size() == 1)
                     EmotionTriggerBus.fire(EmotionTrigger.ALONE_MINUTE, player);
                 else EmotionTriggerBus.fire(EmotionTrigger.WITH_PLAYER_MINUTE, player);
             }
 
             return true;
-        }, 0,TickUtils.minute(1));
+        }, 0,TickUtils.minute(5));
     }
 
     private BukkitTask pingTicker() {

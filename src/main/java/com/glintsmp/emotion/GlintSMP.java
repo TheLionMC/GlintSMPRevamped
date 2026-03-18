@@ -1,5 +1,6 @@
 package com.glintsmp.emotion;
 
+import com.glintsmp.emotion.Afk.AfkHandler;
 import com.glintsmp.emotion.Commands.Command;
 import com.glintsmp.emotion.Commands.Commands.Ability.AbilityActivate;
 import com.glintsmp.emotion.Commands.Commands.CoreProtect.ProtectCommand;
@@ -23,9 +24,6 @@ import com.glintsmp.emotion.Item.ItemManager;
 import com.glintsmp.emotion.Listeners.CustomEvents;
 import com.glintsmp.emotion.Listeners.PlayerDeathListener;
 import com.glintsmp.emotion.Managers.*;
-import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipDecay;
-import com.glintsmp.emotion.RelationshipAlgorithm.RelationshipEventHandler;
-import com.glintsmp.emotion.RelationshipAlgorithm.Triggers.TriggerEventHandler;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -61,6 +59,7 @@ public final class GlintSMP extends JavaPlugin {
         ActionbarManager.initialize(this);
         LifeManager.initialize(this);
         CoreProtectManager.initialize(this);
+        AfkHandler.initialize();
         GhostManager.initialize();
 
         EmotionListenerRegistry.registerAll();
@@ -120,12 +119,8 @@ public final class GlintSMP extends JavaPlugin {
         Objects.requireNonNull(getCommand("Testing")).setExecutor(testingCommand);
 
         // Listeners
-        RelationshipDecay.start(this);
-
         //Event Handlers
-        Bukkit.getPluginManager().registerEvents(new RelationshipEventHandler(this), this);
         Bukkit.getPluginManager().registerEvents(new CustomEvents(), this);
-        Bukkit.getPluginManager().registerEvents(new TriggerEventHandler(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(), this);
     }
 
