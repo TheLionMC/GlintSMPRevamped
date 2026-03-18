@@ -2,10 +2,12 @@ package com.glintsmp.emotion.Listeners;
 
 import com.glintsmp.emotion.Events.EmotionDecreaseEvent;
 import com.glintsmp.emotion.Events.EmotionIncreaseEvent;
+import com.glintsmp.emotion.Events.PlayerAFKEvent;
 import com.glintsmp.emotion.Events.PlayerGhostEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -31,5 +33,11 @@ public class CustomEvents implements Listener {
     @EventHandler
     public void ghost(PlayerGhostEvent event) {
         Bukkit.broadcast(Component.text(event.getPlayer().getName() + "'s life faded away...", NamedTextColor.GRAY));
+    }
+
+    @EventHandler
+    public void afk(PlayerAFKEvent event) {
+        Player player = event.getPlayer();
+        player.sendMessage("You are afk now waky waky.");
     }
 }
