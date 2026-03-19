@@ -26,8 +26,6 @@ public class AdrenalineRush implements Ability {
 
         if (facingEnemy) player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, (int) TickUtils.second(2), 4));
         else player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (int) TickUtils.second(2), 10));
-
-
         return true;
     }
 

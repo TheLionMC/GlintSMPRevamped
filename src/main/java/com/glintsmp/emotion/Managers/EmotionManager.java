@@ -74,7 +74,7 @@ public class EmotionManager {
 
         int oldLevel = section.getInt(emotion.getId(), 0);
 
-        newLevel = Math.min(100, Math.max(0, newLevel));
+        newLevel = Math.clamp(newLevel, 0, 100);
         int diff = newLevel - oldLevel;
 
         if (diff != 0) {
@@ -97,7 +97,7 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current + amount;
 
-        setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
+        setEmotionLevel(emotion, uuid, Math.clamp(newLevel, 0, 100));
     }
 
     public static void decreaseEmotionLevel(Emotion emotion, Player player, int amount) {
@@ -106,7 +106,7 @@ public class EmotionManager {
         int current = getEmotionLevel(emotion, uuid);
         int newLevel = current - amount;
 
-        setEmotionLevel(emotion, uuid, Math.min(100, Math.max(0, newLevel)));
+        setEmotionLevel(emotion, uuid, Math.clamp(newLevel, 0, 100));
     }
 
     public static void save() {
@@ -134,18 +134,23 @@ public class EmotionManager {
 
         emotionFile = file;
         config = YamlConfiguration.loadConfiguration(file);
-        registerEmotion(new Anger());
-        registerEmotion(new Boredom());
-        registerEmotion(new Confidence());
-        registerEmotion(new Fear());
-        registerEmotion(new Loneliness());
         registerEmotion(new Love());
         registerEmotion(new Sadness());
         registerEmotion(new Surprise());
         registerEmotion(new Hatred());
     }
 
-    public static void registerEmotion(Emotion emotion) {
+    public static <T extends Emotion> T registerEmotion(T emotion) {
         emotions.put(emotion.getId(), emotion);
+        return emotion;
     }
+
+    public static Anger ANGER = registerEmotion(new Anger());
+    public static Boredom BOREDOM = registerEmotion(new Boredom());
+    public static Confidence CONFIDENCE = registerEmotion(new Confidence());
+    public static Fear FEAR = registerEmotion(new Fear());
+    public static Loneliness LONELINESS = registerEmotion(new Loneliness());
+    public static Love LOVE = registerEmotion(new Love());
+    public static Sadness SADNESS = registerEmotion(new Sadness());
+    public static Surprise SURPRISE = registerEmotion(new Surprise());
 }

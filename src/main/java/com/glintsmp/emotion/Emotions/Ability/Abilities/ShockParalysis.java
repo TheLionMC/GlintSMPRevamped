@@ -17,24 +17,25 @@ public class ShockParalysis implements Ability {
     public boolean activate(Player player, Emotion emotion) {
         boolean hitSomeone = false;
 
-        for (Player p : player.getLocation().getNearbyPlayers(10)) {
+        for (Player target : player.getLocation().getNearbyPlayers(10)) {
+            if (target.equals(player)) continue;
             PotionEffect blindness = new PotionEffect(PotionEffectType.BLINDNESS, 10*20, 1);
             PotionEffect slow = new PotionEffect(PotionEffectType.SLOWNESS, 10*20, 1);
             PotionEffect nausea = new PotionEffect(PotionEffectType.NAUSEA, 10*20, 1);
 
-            Location loc = p.getLocation().add(0, 1, 0);
-            p.getWorld().spawnParticle(Particle.CRIT, loc, 30, 0.5, 0.5, 0.5, 0.05);
-            p.getWorld().playSound(loc, Sound.ENTITY_GENERIC_HURT, 1.0f, 0.8f);
+            Location loc = target.getLocation().add(0, 1, 0);
+            target.getWorld().spawnParticle(Particle.CRIT, loc, 30, 0.5, 0.5, 0.5, 0.05);
+            target.getWorld().playSound(loc, Sound.ENTITY_GENERIC_HURT, 1.0f, 0.8f);
 
-            p.getWorld().strikeLightningEffect(loc);
-            p.setFreezeTicks(10*20);
+            target.getWorld().strikeLightningEffect(loc);
+            target.setFreezeTicks(10 * 20);
 
-            p.addPotionEffect(blindness);
-            p.addPotionEffect(slow);
-            p.addPotionEffect(nausea);
-            p.damage(2.0, player);
+            target.addPotionEffect(blindness);
+            target.addPotionEffect(slow);
+            target.addPotionEffect(nausea);
+            target.damage(2.0, player);
 
-            p.sendTitlePart(TitlePart.TITLE, Component.text("SHOCK", NamedTextColor.RED));
+            target.sendTitlePart(TitlePart.TITLE, Component.text("SHOCK", NamedTextColor.RED));
 
             hitSomeone = true;
         }

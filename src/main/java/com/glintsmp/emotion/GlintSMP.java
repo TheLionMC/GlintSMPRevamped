@@ -1,5 +1,6 @@
 package com.glintsmp.emotion;
 
+import com.github.retrooper.packetevents.PacketEvents;
 import com.glintsmp.emotion.Commands.Command;
 import com.glintsmp.emotion.Commands.Commands.Ability.AbilityActivate;
 import com.glintsmp.emotion.Commands.Commands.CoreProtect.ProtectCommand;
@@ -23,8 +24,8 @@ import com.glintsmp.emotion.Item.ItemManager;
 import com.glintsmp.emotion.Listeners.CustomEvents;
 import com.glintsmp.emotion.Listeners.PlayerDeathListener;
 import com.glintsmp.emotion.Managers.*;
-import com.glintsmp.emotion.Relationship.RelationManager;
 import com.glintsmp.emotion.Relationship.RelationRegistry;
+import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -48,6 +49,12 @@ public final class GlintSMP extends JavaPlugin {
     private static GlintSMP instance;
 
     @Override
+    public void onLoad() {
+        PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
+        PacketEvents.getAPI().load();
+    }
+
+    @Override
     public void onEnable() {
         logger = getLogger();
         logger.info("Emotions are running high!");
@@ -56,7 +63,6 @@ public final class GlintSMP extends JavaPlugin {
         EmotionManager.initialize(this);
         TrustManager.initialize(this);
         CoreProtectManager.initialize(this);
-        RelationshipManager.initialize(this);
         ActionbarManager.initialize(this);
         LifeManager.initialize(this);
         GhostManager.initialize();

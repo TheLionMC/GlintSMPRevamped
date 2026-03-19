@@ -38,6 +38,10 @@ public class RelationManager {
         return container.getOrDefault(key, PersistentDataType.INTEGER, 0);
     }
 
+    public static boolean hasHighRelation(Player player, Player target) {
+        return getRelation(player, target) > 80;
+    }
+
     private static NamespacedKey getKey(Player target) {
         return new NamespacedKey(GlintSMP.getInstance(), "relationship_" + target.getUniqueId());
     }

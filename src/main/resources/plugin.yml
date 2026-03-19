@@ -1,5 +1,7 @@
 name: GlintSMP
 version: 'v0.0.2'
+depend:
+  - PacketEvents
 main: com.glintsmp.emotion.GlintSMP
 api-version: '1.21'
 
