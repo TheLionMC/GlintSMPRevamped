@@ -2,6 +2,7 @@ com\glintsmp\emotion\Emotions\Emotions\Confidence.class
 com\glintsmp\emotion\Events\EmotionDecreaseEvent.class
 com\glintsmp\emotion\Emotions\Emotions\Fear.class
 com\glintsmp\emotion\Emotions\Ability\Abilities\HatredUnleashed.class
+com\glintsmp\emotion\Emotions\Trigger\Listeners\AdvancementListener.class
 com\glintsmp\emotion\GlintSMP$3.class
 com\glintsmp\emotion\Commands\Commands\Ability\AbilityActivate.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\EnvListener.class
@@ -11,7 +12,6 @@ com\glintsmp\emotion\Emotions\Trigger\EmotionTrigger.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\DamageListener.class
 com\glintsmp\emotion\Emotions\Emotion.class
 com\glintsmp\emotion\Utils\ItemBuilder.class
-com\glintsmp\emotion\Ghost\GhostManager.class
 com\glintsmp\emotion\Emotions\Emotions\Love.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionListener.class
 com\glintsmp\emotion\Ghost\GhostWorld.class
@@ -43,6 +43,7 @@ com\glintsmp\emotion\Events\LoseLifeEvent.class
 com\glintsmp\emotion\Emotions\Trigger\Listeners\DeathListener.class
 com\glintsmp\emotion\Emotions\Trigger\EmotionListenerRegistry.class
 com\glintsmp\emotion\Utils\TickUtils$Time.class
+com\glintsmp\emotion\Managers\GhostManager.class
 com\glintsmp\emotion\Emotions\Ability\Ability.class
 com\glintsmp\emotion\Emotions\EmotionAlgorithm.class
 com\glintsmp\emotion\Commands\Commands\Item\GiveItemCommand.class
@@ -77,7 +78,6 @@ com\glintsmp\emotion\Emotions\Ability\Abilities\Clumsiness.class
 com\glintsmp\emotion\Commands\Commands\CoreProtect\ProtectCommand.class
 com\glintsmp\emotion\GlintSMP.class
 com\glintsmp\emotion\Utils\CheckUtils.class
-com\glintsmp\emotion\Listeners\ConnectionListeners.class
 com\glintsmp\emotion\Managers\EmotionManager.class
 com\glintsmp\emotion\Commands\Commands\CoreProtect\ProtectPos1.class
 com\glintsmp\emotion\Commands\Commands\Trust\TrustList.class
