@@ -3,6 +3,7 @@ package com.glintsmp.emotion.Emotions.Ability.Abilities;
 import com.glintsmp.emotion.Emotions.Ability.Ability;
 import com.glintsmp.emotion.Emotions.Emotion;
 import com.glintsmp.emotion.Managers.TrustManager;
+import com.glintsmp.emotion.Utils.TickUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -23,11 +24,9 @@ public class AdrenalineRush implements Ability {
             }
         }
 
-        if (facingEnemy) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 2, 4));
-        } else {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2, 10));
-        }
+        if (facingEnemy) player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, (int) TickUtils.second(2), 4));
+        else player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (int) TickUtils.second(2), 10));
+
 
         return true;
     }
