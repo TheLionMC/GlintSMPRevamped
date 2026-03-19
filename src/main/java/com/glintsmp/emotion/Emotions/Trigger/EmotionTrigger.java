@@ -16,6 +16,8 @@ public enum EmotionTrigger {
     //Damage
     PLAYER_DAMAGED_BY_PLAYER(null), /** Triggered **/
     PLAYER_DAMAGED_BY_MOB(null), /** Triggered **/
+    PLAYER_ENTER_COMBAT(simpleCooldown(300)),
+    PLAYER_STRUCK_BY_LIGHTNING(simpleCooldown(3600)),
     HEALTH_DROP(null), /** Triggered **/
 
     //Chats
@@ -23,27 +25,30 @@ public enum EmotionTrigger {
     PLAYER_RECEIVES_MESSAGE(null), /** Triggered **/
     PLAYER_RECEIVE_ADVANCEMENT_NORMAL(null), /** Triggered **/
     PLAYER_RECEIVE_ADVANCEMENT_TOAST(null), /** Triggered **/
+    PLAYER_ENTER_END(null), /** Triggered **/
+    PLAYER_ENTER_NETHER(null),
 
     //TODO: EVENT, These will be called once we start creating events
     PLAYER_LOST_EVENT(null),
     PLAYER_WINS_EVENT(null),
 
     //TODO: Add custom bosses
+    // Note: We could use the api here to so we don't have to do some wierd name shit
     PLAYER_DEFEATS_BOSS(null), /** Triggered **/
 
     //Calm
     PLAYER_EATS_FOOD(null), /** Triggered **/
     PLAYER_SLEEPS(null), /** Triggered **/
-    PLAYER_REGEN_HEALTH(null), /** Triggered **/
+    PLAYER_REGEN_HEALTH(simpleCooldown(3600)), /** Triggered **/
     PLAYER_LISTENS_TO_MUSIC_DISC(null), /** Triggered **/
     PLAYER_FISH(simpleCooldown(20)),
 
     //Trust
-    PLAYER_TRUST_ADD(null),  /** Triggered **/
-    PLAYER_TRUST_REMOVE(null),  /** Triggered **/
+    PLAYER_TRUST_ADD(simpleCooldown(3600)),  /** Triggered **/
+    PLAYER_TRUST_REMOVE(simpleCooldown(3600)),  /** Triggered **/
 
     //Fear
-    NEAR_WARDEN(null),
+    NEAR_WARDEN(null), /** Triggered **/
 
     //Ticks
     ALONE_MINUTE(null), /** Triggered **/

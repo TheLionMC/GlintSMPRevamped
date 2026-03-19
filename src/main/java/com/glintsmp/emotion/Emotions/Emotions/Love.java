@@ -10,7 +10,9 @@ public class Love extends Emotion {
     public Love() {
         super("love", new Heal());
         addTrigger(EmotionTrigger.WITH_PLAYER_MINUTE, Type.POSITIVE,1);
+        addTrigger(EmotionTrigger.PLAYER_TRUST_ADD, Type.POSITIVE, 2);
 
+        addTrigger(EmotionTrigger.PLAYER_TRUST_REMOVE, Type.NEGATIVE, 2);
         addTrigger(EmotionTrigger.GENERAL_DECREASE, Type.NEGATIVE, 1);
     }
 

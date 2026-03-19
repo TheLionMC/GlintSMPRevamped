@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /**
- * Ensures TriggerRegistry is populated and performs a harmless access of all triggers
+ * Ensures TriggerRegistry is populated and performs harmless access of all triggers
  * when a player joins (so the classes are referenced at runtime).
  */
 public class TriggerEventHandler implements Listener {

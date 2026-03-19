@@ -6,10 +6,11 @@ import com.glintsmp.emotion.Emotions.Trigger.EmotionTriggerBus;
 import com.glintsmp.emotion.GlintSMP;
 import com.glintsmp.emotion.Utils.TickUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 @EmotionListener
@@ -19,6 +20,7 @@ public class EmotionTicks {
         lonelyTicker();
         pingTicker();
         generalTicker();
+        nearWarden();
     }
 
     private BukkitTask lonelyTicker() {
@@ -26,13 +28,13 @@ public class EmotionTicks {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 Collection<Player> nearby = player.getLocation().getNearbyPlayers(160);
 
-                if (nearby.size() != 1)
+                if (nearby.size() == 1)
                     EmotionTriggerBus.fire(EmotionTrigger.ALONE_MINUTE, player);
                 else EmotionTriggerBus.fire(EmotionTrigger.WITH_PLAYER_MINUTE, player);
             }
 
             return true;
-        }, 0,TickUtils.minute(1));
+        }, 0,TickUtils.minute(10));
     }
 
     private BukkitTask pingTicker() {
@@ -45,6 +47,20 @@ public class EmotionTicks {
             }
             return true;
         }, 0, TickUtils.second(30));
+    }
+
+    private BukkitTask nearWarden() {
+        return GlintSMP.runTaskTimer( tick -> {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                Collection<LivingEntity> entityList = p.getLocation().getNearbyLivingEntities(30);
+                for (LivingEntity e : entityList) {
+                    if (e.getType() == EntityType.WARDEN) {
+                        EmotionTriggerBus.fire(EmotionTrigger.NEAR_WARDEN, p);
+                    }
+                }
+            }
+            return true;
+        }, 0, TickUtils.minute(5));
     }
 
     private BukkitTask generalTicker() {

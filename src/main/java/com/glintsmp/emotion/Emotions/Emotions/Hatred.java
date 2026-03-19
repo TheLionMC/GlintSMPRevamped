@@ -11,7 +11,9 @@ public class Hatred extends Emotion {
         super("hatred", new HatredUnleashed());
         addTrigger(EmotionTrigger.PLAYER_DEATH_BY_PLAYER, Type.POSITIVE, 2);
         addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 3);
+        addTrigger(EmotionTrigger.PLAYER_TRUST_REMOVE, Type.POSITIVE, 2);
 
+        addTrigger(EmotionTrigger.PLAYER_TRUST_ADD, Type.NEGATIVE, 2);
         addTrigger(EmotionTrigger.GENERAL_DECREASE, Type.NEGATIVE, 1);
     }
 

@@ -9,11 +9,14 @@ import io.papermc.paper.event.player.PlayerDeepSleepEvent;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Jukebox;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Fish;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
+import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
@@ -62,5 +65,15 @@ public class CalmListener implements Listener {
             ItemStack record = jukebox.getRecord();
             EmotionTriggerBus.fire(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, player, record);
         }, TickUtils.second(new Random().nextInt(20, 60)));
+    }
+
+    @EventHandler
+    public void playerFish(PlayerFishEvent event) {
+        Player player = event.getPlayer();
+        Entity entity = event.getCaught();
+
+        if (entity == null) return;
+
+        EmotionTriggerBus.fire(EmotionTrigger.PLAYER_FISH, player, entity);
     }
 }

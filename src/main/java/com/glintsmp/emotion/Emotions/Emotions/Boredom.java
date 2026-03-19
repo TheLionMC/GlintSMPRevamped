@@ -10,9 +10,11 @@ public class Boredom extends Emotion {
     public Boredom() {
         super("boredom", new Clumsiness());
 
-        addTrigger(EmotionTrigger.ALONE_MINUTE,Type.POSITIVE,1);
+        addTrigger(EmotionTrigger.ALONE_MINUTE, Type.POSITIVE,1);
+        addTrigger(EmotionTrigger.PLAYER_FISH, Type.POSITIVE, 1);
 
         addTrigger(EmotionTrigger.WITH_PLAYER_MINUTE,Type.NEGATIVE,1);
+        addTrigger(EmotionTrigger.PLAYER_KILLED_PLAYER, Type.NEGATIVE, 5);
         addTrigger(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_TOAST, Type.NEGATIVE, 3);
         addTrigger(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_NORMAL, Type.NEGATIVE, 1);
     }

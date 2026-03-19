@@ -1,7 +1,7 @@
 package com.glintsmp.emotion.Listeners;
 
 import com.glintsmp.emotion.Events.LoseLifeEvent;
-import com.glintsmp.emotion.Ghost.GhostManager;
+import com.glintsmp.emotion.Managers.GhostManager;
 import com.glintsmp.emotion.Managers.LifeManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;

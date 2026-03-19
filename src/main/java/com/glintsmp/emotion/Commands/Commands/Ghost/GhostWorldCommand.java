@@ -1,7 +1,7 @@
 package com.glintsmp.emotion.Commands.Commands.Ghost;
 
 import com.glintsmp.emotion.Commands.SubCommand;
-import com.glintsmp.emotion.Ghost.GhostManager;
+import com.glintsmp.emotion.Managers.GhostManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;

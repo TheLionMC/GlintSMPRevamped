@@ -18,7 +18,7 @@ import com.glintsmp.emotion.Commands.Commands.Trust.TrustList;
 import com.glintsmp.emotion.Commands.Commands.Trust.TrustRemove;
 import com.glintsmp.emotion.CoreProtect.CoreProtectManager;
 import com.glintsmp.emotion.Emotions.Trigger.EmotionListenerRegistry;
-import com.glintsmp.emotion.Ghost.GhostManager;
+import com.glintsmp.emotion.Managers.GhostManager;
 import com.glintsmp.emotion.Item.ItemManager;
 import com.glintsmp.emotion.Listeners.CustomEvents;
 import com.glintsmp.emotion.Listeners.PlayerDeathListener;
@@ -56,12 +56,12 @@ public final class GlintSMP extends JavaPlugin {
 
         EmotionManager.initialize(this);
         TrustManager.initialize(this);
-        ItemManager.initialize();
+        CoreProtectManager.initialize(this);
         RelationshipManager.initialize(this);
         ActionbarManager.initialize(this);
         LifeManager.initialize(this);
-        CoreProtectManager.initialize(this);
         GhostManager.initialize();
+        ItemManager.initialize();
 
         EmotionListenerRegistry.registerAll();
 

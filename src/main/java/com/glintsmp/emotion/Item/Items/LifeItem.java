@@ -42,7 +42,7 @@ public class LifeItem extends Item implements Consumable {
             return;
         }
 
-        player.sendMessage(Component.text("you have gained 1 life", TextColor.color(232, 49, 79)));
+        player.sendMessage(Component.text("You have gained 1 life", TextColor.color(232, 49, 79)));
     }
 
     @Override

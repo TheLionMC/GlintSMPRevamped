@@ -1,10 +1,8 @@
-package com.glintsmp.emotion.Ghost;
+package com.glintsmp.emotion.Managers;
 
+import com.glintsmp.emotion.Ghost.GhostWorld;
 import com.glintsmp.emotion.GlintSMP;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class GhostManager {

@@ -28,17 +28,4 @@ public class ChatListener implements Listener {
                     event.message(), player);
         }
     }
-
-    @EventHandler
-    public void playerAdvancement(PlayerAdvancementDoneEvent event) {
-        AdvancementDisplay display = event.getAdvancement().getDisplay();
-        if (display == null) return;
-
-        AdvancementDisplay.Frame advancement = display.frame();
-
-        if (advancement == AdvancementDisplay.Frame.CHALLENGE)
-            EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_TOAST, event.getPlayer());
-        else
-            EmotionTriggerBus.fire(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_NORMAL, event.getPlayer());
-    }
 }

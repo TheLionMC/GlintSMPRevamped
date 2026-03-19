@@ -26,12 +26,15 @@ public class Anger extends Emotion {
         addTrigger(EmotionTrigger.PLAYER_SLEEPS, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_REGEN_HEALTH, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_LISTENS_TO_MUSIC_DISC, Type.NEGATIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_FISH, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.GENERAL_DECREASE, Type.NEGATIVE, 1);
     }
 
     @Override
     public void onIncrease(Player player, int value) {
         //TODO: Make a trigger to increase/decrease their anger emotion
+        // This would entail having the textures done and sending a packet to the ActionbarManager
+        // This is also probably able to be generalised in the EmotionTriggerBus
     }
 
     @Override

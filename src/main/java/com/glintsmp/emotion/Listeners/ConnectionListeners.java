@@ -1,6 +1,6 @@
 package com.glintsmp.emotion.Listeners;
 
-import com.glintsmp.emotion.Ghost.GhostManager;
+import com.glintsmp.emotion.Managers.GhostManager;
 import com.glintsmp.emotion.Managers.LifeManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

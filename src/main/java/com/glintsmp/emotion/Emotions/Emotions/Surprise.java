@@ -13,7 +13,12 @@ public class Surprise extends Emotion {
         addTrigger(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_TOAST, Type.POSITIVE, 4);
         addTrigger(EmotionTrigger.PLAYER_EXPERIENCES_LAG_SPIKE, Type.POSITIVE, 1);
         addTrigger(EmotionTrigger.PLAYER_RECEIVE_ADVANCEMENT_NORMAL, Type.POSITIVE, 2);
+        addTrigger(EmotionTrigger.PLAYER_DEATH_EXPLOSION, Type.POSITIVE, 2);
+        addTrigger(EmotionTrigger.PLAYER_STRUCK_BY_LIGHTNING, Type.POSITIVE, 10);
+        addTrigger(EmotionTrigger.PLAYER_ENTER_NETHER, Type.POSITIVE, 5);
+        addTrigger(EmotionTrigger.PLAYER_ENTER_END, Type.POSITIVE, 5);
 
+        addTrigger(EmotionTrigger.PLAYER_FISH, Type.NEGATIVE, 1);
         addTrigger(EmotionTrigger.GENERAL_DECREASE, Type.NEGATIVE, 1);
     }
 

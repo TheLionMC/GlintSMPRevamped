@@ -12,7 +12,10 @@ public class Loneliness extends Emotion {
 
         addTrigger(EmotionTrigger.ALONE_MINUTE, Type.POSITIVE,1);
         addTrigger(EmotionTrigger.PET_KILLED, Type.POSITIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_FISH, Type.POSITIVE, 1);
+        addTrigger(EmotionTrigger.PLAYER_TRUST_REMOVE, Type.POSITIVE, 2);
 
+        addTrigger(EmotionTrigger.PLAYER_TRUST_ADD, Type.NEGATIVE, 2);
         addTrigger(EmotionTrigger.WITH_PLAYER_MINUTE,Type.NEGATIVE,1);
     }
 
